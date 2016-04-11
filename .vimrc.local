@@ -26,6 +26,23 @@ set wrap
     " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
     " 好处：误删什么的，如果以前屏幕打开，可以找回
     set t_ti= t_te=
+
+"    " format
+"    " 解决中文问题
+"    set encoding=utf-8
+"    set fileencodings=utf-8,chinese,gb2312,gbk,gb18030,big5,latin-1
+
+lang messages zh_CN.UTF-8
+"解决consle输出乱码
+set encoding=utf-8
+"Vim 内部使用的编码，包括缓冲区，菜单（消息）文本
+set fileencoding=utf-8
+"vim当前编辑的文件的字符编码方式， vim保存文件时也使用这种方式（不管新文件是否如此）
+set fileencodings=ucs-bom,utf-8,chinese,latin1
+"vim启动时按照列出的字符编码方式逐一探测即将打开的文件的字符编码方式
+"set termencoding=utf-8
+"终端的字符编码方式
+language messages zh_CN.utf-8
 "}
 
 " Key (re)Mappings {

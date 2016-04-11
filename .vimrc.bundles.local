@@ -57,7 +57,7 @@
             " guan customize
             Bundle 'brookhong/cscope.vim'
             Bundle 'lilydjwg/fcitx.vim'
-            Bundle 'suan/vim-instant-markdown'
+            "Bundle 'suan/vim-instant-markdown'
             " end of guan customize
 
 "            " Pick one of the checksyntax, jslint, or syntastic
