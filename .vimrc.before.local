@@ -1,7 +1,12 @@
 "    if !exists('g:spf13_bundle_groups')
 "        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
 "    endif
-let g:spf13_bundle_groups=['general', 'programming', 'misc',]
+
+"        elseif count(g:spf13_bundle_groups, 'youcompleteme')
+"        elseif count(g:spf13_bundle_groups, 'neocomplcache')
+"        elseif count(g:spf13_bundle_groups, 'neocomplete')
+
+let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme',]
 
     " To override all the included bundles, add the following to your
     " .vimrc.bundles.local file:

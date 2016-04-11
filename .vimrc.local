@@ -1,18 +1,23 @@
 
-        set background=dark
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
-highlight clear CursorLineNr    " Remove highlight color from current line number 
+
+" General {
 
 " 主题
   " set background=light         " Assume a dark background
-" General {
+"        set background=dark
+"        let g:solarized_termcolors=256
+"        let g:solarized_termtrans=1
+"        let g:solarized_contrast="normal"
+"        let g:solarized_visibility="normal"
+        color solarized             " Load a colorscheme
 
+"highlight clear SignColumn      " SignColumn should match background
+"highlight clear LineNr          " Current line number row will have same background color in relative mode
+
+" 设置环绕换行
+set wrap
+
+"highlight clear CursorLineNr    " Remove highlight color from current line number 
     " 突出显示当前列
     "set cursorcolumn
     " 突出显示当前行
@@ -193,6 +198,62 @@ highlight clear CursorLineNr    " Remove highlight color from current line numbe
 " }
 
 " Plugins {
+
+" markdown {
+   " Plug 'plasticboy/vim-markdown', {'for': 'md'}
+   " " https://github.com/suan/vim-instant-markdown
+   " " npm -g install instant-markdown-d
+   " " Plug 'suan/vim-instant-markdown'
+   " " let g:instant_markdown_slow = 1
+   " " let g:instant_markdown_autostart = 0
+   " " map <F12> :InstantMarkdownPreview<CR>
+"}
+
+" easymotion {{{
+"    " <Leader>f{char} to move to {char}
+"    map  <Leader>f <Plug>(easymotion-bd-f)
+"    nmap <Leader>f <Plug>(easymotion-overwin-f)
+"
+    " s{char}{char} to move to {char}{char}
+    nmap s <Plug>(easymotion-overwin-f2)
+"
+"    " Move to line
+"    map <Leader>L <Plug>(easymotion-bd-jk)
+"    nmap <Leader>L <Plug>(easymotion-overwin-line)
+"
+"    " Move to word
+"    map  <Leader>w <Plug>(easymotion-bd-w)
+"    nmap <Leader>w <Plug>(easymotion-overwin-w)
+" }}}
+
+" cscope.vim(brookhong) {{{
+"Below is the minimum key mappings.
+
+    nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+    nnoremap <leader>l :call ToggleLocationList()<CR>
+
+"Some optional key mappings to search directly.
+
+    " s: Find this C symbol
+    nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+    " g: Find this definition
+    nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+    " d: Find functions called by this function
+    nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+    " c: Find functions calling this function
+    nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+    " t: Find this text string
+    nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+    " e: Find this egrep pattern
+    nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+    " f: Find this file
+    nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+    " i: Find files #including this file
+    nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+    " 不再提示更新
+    let g:cscope_silent=1
+" }}}
+
     " indent_guides {
     "    if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
@@ -382,8 +443,8 @@ highlight clear CursorLineNr    " Remove highlight color from current line numbe
 "
 "" 文件修改之后自动载入
 "set autoread
-"" 启动的时候不显示那个援助乌干达儿童的提示
-"set shortmess=atI
+" 启动的时候不显示那个援助乌干达儿童的提示
+set shortmess=atI
 "
 "" 备份,到另一个位置. 防止误删, 目前是取消备份
 ""set backup

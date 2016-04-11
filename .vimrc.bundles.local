@@ -54,6 +54,12 @@
 
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
+            " guan customize
+            Bundle 'brookhong/cscope.vim'
+            Bundle 'lilydjwg/fcitx.vim'
+            Bundle 'suan/vim-instant-markdown'
+            " end of guan customize
+
 "            " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
             Bundle 'tpope/vim-fugitive'
@@ -61,7 +67,7 @@
 "            Bundle 'mattn/gist-vim'
             Bundle 'scrooloose/nerdcommenter'
 "            Bundle 'tpope/vim-commentary'
-"            Bundle 'godlygeek/tabular'
+            Bundle 'godlygeek/tabular'
             Bundle 'luochen1990/rainbow'
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
@@ -744,28 +750,40 @@
 "    let g:ctrlp_extensions = ['funky']
 "" }}}
 "
-"
-"" ctrlsf {{{
-"    nmap \ <Plug>CtrlSFCwordPath<CR>
-"    " let g:ctrlsf_position = 'below'
-"    " let g:ctrlsf_winsize = '30%'
-"    let g:ctrlsf_auto_close = 0
-"    let g:ctrlsf_confirm_save = 0
-"    " Note: cannot use <CR> or <C-m> for open
-"    " Use : <sapce> or <tab>
-"    let g:ctrlsf_mapping = {
-"        \ "open"  : "<Space>",
-"        \ "openb" : "O",
-"        \ "tab"   : "t",
-"        \ "tabb"  : "T",
-"        \ "prevw" : "p",
-"        \ "quit"  : "q",
-"        \ "next"  : "<C-J>",
-"        \ "prev"  : "<C-K>",
-"        \ "pquit" : "q",
-"        \ }
-"" }}}
-"
+
+" ctrlsf {{{
+    "nmap \ <Plug>CtrlSFCwordPath
+    "nmap \ <Plug>CtrlSFVwordExec<CR>
+    vmap     \      <Plug>CtrlSFVwordExec
+
+    nmap     <C-F>f <Plug>CtrlSFPrompt
+    vmap     <C-F>f <Plug>CtrlSFVwordPath
+    vmap     <C-F>F <Plug>CtrlSFVwordExec
+    nmap     <C-F>n <Plug>CtrlSFCwordPath
+    nmap     <C-F>p <Plug>CtrlSFPwordPath
+    nnoremap <C-F>o :CtrlSFOpen<CR>
+    nnoremap <C-F>t :CtrlSFToggle<CR>
+    inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+    " let g:ctrlsf_position = 'below'
+    " let g:ctrlsf_winsize = '30%'
+    let g:ctrlsf_auto_close = 0
+    let g:ctrlsf_confirm_save = 0
+    " Note: cannot use <CR> or <C-m> for open
+    " Use : <sapce> or <tab>
+    let g:ctrlsf_mapping = {
+        \ "open"  : "<Space>",
+        \ "openb" : "O",
+        \ "tab"   : "t",
+        \ "tabb"  : "T",
+        \ "prevw" : "p",
+        \ "quit"  : "q",
+        \ "next"  : "<C-J>",
+        \ "prev"  : "<C-K>",
+        \ "pquit" : "q",
+        \ }
+" }}}
+
 "" git.  git操作还是习惯命令行,vim里面处理简单diff编辑操作
 "
 "" fugitive {{{
