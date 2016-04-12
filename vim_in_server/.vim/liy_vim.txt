@@ -1,0 +1,174 @@
+=== move
+--- 文件
+	头	- gg
+	尾	- G
+
+--- 页
+	下翻	- C+f
+	上翻	- C+b
+
+
+--- 行
+	行首	- 0
+	行尾	- $
+
+	某行	- :行号
+
+--- 词
+	下一个词	- w
+	上一个词	- b
+
+--- 函数间移动;
+	上面的函数	- [[
+	下面的函数	- ]]
+
+--- %
+	括号匹配
+
+--- ', `
+ 	''              此命令相当有用, 它移动光标到上一个标记处, 比如用 gd, * 等查
+                  找到某个单词后, 再输入此命令则回到上次停留的位置.
+
+  	`.              此命令相当好使, 它移动光标到上一次的修改点.
+=== edit
+--- 选择
+	词		-
+	行		- V
+	块		- C+v
+
+--- mark
+	显示所有标签list
+	,mk
+	
+	删除标签
+	:delmarks a
+	:delmarks a-z
+
+	打标记:
+		m'
+		ma
+		mb
+
+	回到上一个标记:
+		''
+		'a
+		'b
+
+
+--- 自动补全
+	根据当前文件里关键字补全:(C+p)
+		Ctrl+X Ctrl+N
+		inoremap <C-p> <C-x><C-n>
+
+	在当前tags里补全,包括本文件:
+		C+n
+		
+--- 粘帖
+	"+y - 复制
+	"+p - 粘帖
+
+
+--- 多窗口
+	:sp
+	:vsp
+	:e 
+
+--- 撤销
+	a)   撤消	- u
+	b)   重复	- .
+	c)   还原	- C + r
+
+--- 自动排版:
+	一段: =
+	正文: gg=G
+
+--- buf
+	,bv
+
+	:ls
+	:e #2
+
+--- 替换
+	:%s/old/new/gc
+
+--- 缩进
+	>
+	增加缩进,"x>"表示增加以下x行的缩进
+	<
+	减少缩进,"x<"表示减少以下x行的缩进
+
+
+=== coding
+--- 跳到文件
+	gf
+	返回 - C+o
+
+--- 跳到变量
+	gd
+	返回 - ''
+
+--- grep:
+	\<FEAT_QUICKFIX\>
+
+--- diff:
+	#vimdiff file1 file2
+	#vim -d file1 file2
+	:diffthis :diffthis
+	]c -- 下一个差异
+	[c -- 上一个差异
+
+
+=== make
+	:cope
+	:make
+
+	<F5> - 上一个错误
+	<F6> - 下一个错误	
+
+
+=== ctags
+--- use
+	:ts foo	列出tags表
+	Ctrl+]	(foo定义处)
+	Ctrl-w-] (跳到定义处，并在新窗口打开)
+	Ctrl+t	(返回)
+
+--- 多个匹配
+	:tags
+	:tfirst                 到第一个匹配
+	:[count]tprevious       向前 [count] 个匹配
+	:[count]tnext           向后 [count] 个匹配
+	:tlast                  到最后一个匹配
+	如果没有指定，[count] 省缺为一。	
+
+--- 猜测标签名
+	. 补全函数名
+	1) write开头
+		:ta write_<Tab>
+
+	2) 包含write
+		:ta /write 
+	
+--- 在预览窗口打开
+	. tag
+		:pta file_operations
+	
+	. file
+		:pedit ./include/linux/fs.h
+
+--- build
+	ctags -R --c-kinds=+px
+	nmap <silent> <leader>tg :!ctags -R --c-kinds=+px --fields=+iS<cr><cr>
+	vmap <silent> <leader>tg :!ctags -R --c-kinds=+px --fields=+iS<cr><cr>
+	
+	alias ctags='ctags-exuberant'
+	
+	
+	分别对/home/module/和/var/www/html/ 产生tags,然后到vi里载入set tags+=/home/module/tags,/var/www/html/tags
+
+
+=== Lookupfile
+,lk	//项目文件查找补全
+,ll	//Buff查找补全
+,lw	//浏览目录
+
