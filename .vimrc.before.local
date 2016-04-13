@@ -39,3 +39,18 @@ let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme',]
         " Default in terminal vim is 'dark'
     " }
 
+" Key (re)Mappings {
+
+    " Easier moving in tabs and windows
+    " The lines conflict with the default digraph mapping of <C-K>
+    " If you prefer that functionality, add the following to your
+    " .vimrc.before.local file:
+       let g:spf13_no_easyWindows = 1
+    "if !exists('g:spf13_no_easyWindows')
+        map <C-J> <C-W>j
+        map <C-K> <C-W>k
+        map <C-L> <C-W>l
+        map <C-H> <C-W>h
+    "endif
+
+" }
