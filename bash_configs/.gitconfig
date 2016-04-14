@@ -1,0 +1,48 @@
+[init]
+	templatedir = ~/.git_template
+[alias]
+	ctags = !.git/hooks/ctags
+[user]
+	email = gjz175@qq.com
+	name = guanjianzhe
+
+[color]
+    ui = auto
+    filemode = false
+    diff = auto
+    status = auto
+    branch = auto
+    pager = true
+[alias]
+	df = diff --ignore-space-at-eol
+	fp = format-patch --ignore-space-at-eol -M -C
+	fpb = "!f(){ git format-patch --ignore-space-at-eol -M -C --subject-prefix="PATCH][$(basename $PWD)/$( basename $(git config --get branch.$(basename $(cat .git/HEAD|awk '{print $2}')).merge))" ${*};};f"
+
+    # guan from http://stackoverflow.com/questions/2553786/how-do-i-alias-commands-in-git
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    unstage = reset HEAD --
+    last = log -1 HEAD
+
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ld = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --all --decorate --date=short --graph
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !"git lg1"
+[core]
+    pager = less -FRSX
+    excludes = ~/.gitexcludes
+    editor = vim
+    quotepath = false
+[rerere]
+    enabled = true
+    autoupdate = true
+[rebase]
+    autosquash = true
+[merge]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    keepBackup = false
