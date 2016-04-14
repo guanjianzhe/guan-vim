@@ -204,3 +204,8 @@ setup_vundle    "$APP_PATH/.vimrc.bundles.default"
 
 msg             "\nThanks for installing $app_name."
 msg             "© `date +%Y` http://vim.spf13.com/"
+
+# use this command
+ln -s ~/.guan-vim/.vimrc.before.local .vimrc.before.local
+ln -s ~/.guan-vim/.vimrc.local .vimrc.local
+ln -s ~/.guan-vim/.vimrc.bundles.local .vimrc.bundles.local
