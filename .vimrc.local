@@ -103,8 +103,8 @@ language messages zh_CN.utf-8
     noremap <left> :bp<CR>
     noremap <right> :bn<CR>
     " 使用方向键切换c
-    noremap <up> :tp<CR>
-    noremap <down> :tn<CR>
+    noremap <up> :lprevious<CR>
+    noremap <down> :lnext<CR>
 
 
     " tab 操作
@@ -232,6 +232,11 @@ language messages zh_CN.utf-8
 
 " Plugins {
 
+" Syntastic {
+
+let g:syntastic_auto_loc_list = 0
+
+" }
 " markdown {
    " Plug 'plasticboy/vim-markdown', {'for': 'md'}
    " " https://github.com/suan/vim-instant-markdown
