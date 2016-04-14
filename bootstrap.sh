@@ -15,13 +15,13 @@
 #   limitations under the License.
 
 ############################  SETUP PARAMETERS
-app_name='spf13-vim'
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/.spf13-vim-3"
+app_name='guan-vim'
+[ -z "$APP_PATH" ] && APP_PATH="$HOME/.guan-vim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/spf13/spf13-vim.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH='3.0'
+[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
 debug_mode='0'
 fork_maintainer='0'
-[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
+#[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
 
 ############################  BASIC SETUP TOOLS
 msg() {
@@ -121,23 +121,16 @@ create_symlinks() {
     local source_path="$1"
     local target_path="$2"
 
-    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
-    lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
-    lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
-    lnif "$source_path/.vim"           "$target_path/.vim"
-
-    if program_exists "nvim"; then
-        lnif "$source_path/.vim"       "$target_path/.config/nvim"
-        lnif "$source_path/.vimrc"     "$target_path/.config/nvim/init.vim"
-    fi
-
-    touch  "$target_path/.vimrc.local"
+    lnif "$source_path/.vimrc.before.local"  "$target_path/.vimrc.before.local"
+    lnif "$source_path/.vimrc.before.local"  "$target_path/.vimrc.before.local"
+    lnif "$source_path/.vimrc.bundles.local" "$target_path/.vimrc.bundles.local"
 
     ret="$?"
-    success "Setting up vim symlinks."
+    success "Setting up vimrc local symlinks."
     debug
 }
 
+# TODO
 setup_fork_mode() {
     local source_path="$2"
     local target_path="$3"
@@ -179,9 +172,9 @@ variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
 
-do_backup       "$HOME/.vim" \
-                "$HOME/.vimrc" \
-                "$HOME/.gvimrc"
+do_backup       "$HOME/.vimrc.local" \
+                "$HOME/.vimrc.bundle.local" \
+                "$HOME/.vimrc.local"
 
 sync_repo       "$APP_PATH" \
                 "$REPO_URI" \
@@ -191,14 +184,10 @@ sync_repo       "$APP_PATH" \
 create_symlinks "$APP_PATH" \
                 "$HOME"
 
+# put my bashrc, gitconfig and ctag with git here
 setup_fork_mode "$fork_maintainer" \
                 "$APP_PATH" \
                 "$HOME"
-
-sync_repo       "$HOME/.vim/bundle/vundle" \
-                "$VUNDLE_URI" \
-                "master" \
-                "vundle"
 
 setup_vundle    "$APP_PATH/.vimrc.bundles.default"
 
@@ -206,6 +195,6 @@ msg             "\nThanks for installing $app_name."
 msg             "© `date +%Y` http://vim.spf13.com/"
 
 # use this command
-ln -s ~/.guan-vim/.vimrc.before.local .vimrc.before.local
-ln -s ~/.guan-vim/.vimrc.local .vimrc.local
-ln -s ~/.guan-vim/.vimrc.bundles.local .vimrc.bundles.local
+#ln -s ~/.guan-vim/.vimrc.before.local .vimrc.before.local
+#ln -s ~/.guan-vim/.vimrc.local .vimrc.local
+#ln -s ~/.guan-vim/.vimrc.bundles.local .vimrc.bundles.local
