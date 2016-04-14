@@ -114,17 +114,9 @@ if ! shopt -oq posix; then
 fi
 
 # guan
-
-# 
 if [ "$TERM" == "xterm"  ]; then
     export TERM=xterm-256color
 fi
 
-# alias
-alias h=history
-alias cdlichee='cd ~/shareForWin7/m_a83/lichee'
-alias cdbrandy='cd ~/shareForWin7/m_a83/lichee/brandy'
-alias cdl4='cd ~/shareForWin7/m_a83/lichee/linux-3.4'
-alias cdl10='cd ~/shareForWin7/m_a83/lichee/linux-3.10'
 # impotant for git
 export LANGUAGE='en_US.UTF-8 git'
