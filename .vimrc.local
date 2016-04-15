@@ -16,23 +16,23 @@
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 "    endif
 " 主题
-  " set background=light         " Assume a dark background
-        set t_Co=256
+        set background=light         " Assume a dark background
         "set background=dark
+        set t_Co=256
         "let g:solarized_termcolors=256
         "let g:solarized_termtrans=1
         "let g:solarized_contrast="normal"
         "let g:solarized_visibility="normal"
-        
+
         " Assume a dark background
-        set background=dark  " set background=light
+        "set background=dark  " set background=light
         color solarized             " Load a colorscheme
         let g:airline_theme = 'solarized'
         "
         "colorscheme molokai
         "let g:airline_theme = 'tomorrow'
 
-        "Tomrrow-Night hybrid zenburn wombat
+        "Tomrrow-Night hybrid zenburn
         "colorscheme Tomorrow-Night
         "let g:airline_theme = 'tomorrow'
         "
@@ -41,13 +41,8 @@
         "
         "colorscheme zenburn
         "let g:airline_theme = 'zenburn'
-        "
-        "colorscheme wombat
-        "let g:airline_theme = 'wombat'
 
-        " base16 jellybeans lucius
-        "colorscheme base
-        "let g:airline_theme = 'base'
+        " jellybeans lucius
         "
         "colorscheme jellybeans
         "let g:airline_theme = 'jellybeans'
