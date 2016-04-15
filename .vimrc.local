@@ -16,7 +16,7 @@
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 "    endif
 " 主题
-        set background=light         " Assume a dark background
+        "set background=light         " Assume a dark background
         "set background=dark
         set t_Co=256
         "let g:solarized_termcolors=256
@@ -25,13 +25,18 @@
         "let g:solarized_visibility="normal"
 
         " Assume a dark background
-        "set background=dark  " set background=light
-        color solarized             " Load a colorscheme
-        let g:airline_theme = 'solarized'
+        "set background=dark
+        "set background=light
+        "colorscheme solarized             " Load a colorscheme
+        "let g:airline_theme = 'solarized'
         "
-        "colorscheme molokai
-        "let g:airline_theme = 'tomorrow'
+        "colorscheme monokai-chris
+        "let g:airline_theme = 'molokai'
 
+        "colorscheme molokai
+        colorscheme molokai_dark
+        let g:airline_theme = 'molokai'
+        "
         "Tomrrow-Night hybrid zenburn
         "colorscheme Tomorrow-Night
         "let g:airline_theme = 'tomorrow'
@@ -43,8 +48,8 @@
         "let g:airline_theme = 'zenburn'
 
         " jellybeans lucius
-        "
         "colorscheme jellybeans
+        "colorscheme jelleybeans
         "let g:airline_theme = 'jellybeans'
         "
         "colorscheme lucius
@@ -319,7 +324,7 @@ let g:syntastic_auto_loc_list = 0
     "    if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
             let g:indent_guides_guide_size = 1
-            let g:indent_guides_enable_on_vim_startup = 1
+            let g:indent_guides_enable_on_vim_startup = 0
 
     "" indent
     "" <leader>ig to trigger
