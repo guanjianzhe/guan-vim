@@ -17,16 +17,43 @@
 "    endif
 " 主题
   " set background=light         " Assume a dark background
-        set background=dark
+        set t_Co=256
+        "set background=dark
         "let g:solarized_termcolors=256
         "let g:solarized_termtrans=1
         "let g:solarized_contrast="normal"
         "let g:solarized_visibility="normal"
+        
+        " Assume a dark background
+        set background=dark  " set background=light
         color solarized             " Load a colorscheme
-        "let g:molokai_original = 1
-        "let g:rehash256 = 1
-        "set t_Co=256
-        "color molokai             " Load a colorscheme
+        let g:airline_theme = 'solarized'
+        "
+        "colorscheme molokai
+        "let g:airline_theme = 'tomorrow'
+
+        "Tomrrow-Night hybrid zenburn wombat
+        "colorscheme Tomorrow-Night
+        "let g:airline_theme = 'tomorrow'
+        "
+        "colorscheme hybrid
+        "let g:airline_theme = 'hybrid'
+        "
+        "colorscheme zenburn
+        "let g:airline_theme = 'zenburn'
+        "
+        "colorscheme wombat
+        "let g:airline_theme = 'wombat'
+
+        " base16 jellybeans lucius
+        "colorscheme base
+        "let g:airline_theme = 'base'
+        "
+        "colorscheme jellybeans
+        "let g:airline_theme = 'jellybeans'
+        "
+        "colorscheme lucius
+        "let g:airline_theme = 'lucius'
 
 highlight clear SignColumn      " SignColumn should match background
 "highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -330,6 +357,8 @@ let g:syntastic_auto_loc_list = 0
    " let g:airline_symbols.linenr = '¶'
    " "let g:airline_symbols.branch = '-b'
    " let g:airline_symbols.branch = '⎇'
+   
+
     " "TODO
     "set ambiwidth=double
     "set noshowmode
