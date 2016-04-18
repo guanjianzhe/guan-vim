@@ -17,7 +17,6 @@
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 "    endif
 " 主题
-
         if strftime("%H") < 12
           set background=light
         else
@@ -38,8 +37,8 @@
         colorscheme solarized             " Load a colorscheme
         let g:airline_theme = 'solarized'
         "
-        "colorscheme monokai-chris
-        "let g:airline_theme = 'molokai'
+        colorscheme monokai-chris
+        let g:airline_theme = 'molokai'
 
         "colorscheme molokai
         "colorscheme molokai_dark
@@ -58,9 +57,9 @@
 
         " jellybeans lucius
         "colorscheme jellybeans
-        "colorscheme jelleybeans
         "let g:airline_theme = 'jellybeans'
         "
+        "set background=light         " Assume a dark background
         "colorscheme lucius
         "let g:airline_theme = 'lucius'
         "
@@ -111,6 +110,7 @@ language messages zh_CN.utf-8
     " go to merge conflict markers
     " already in spf13
     "map <leader>gc /\v^[<\|=>]{7}( .*\|$)<CR>
+    map <leader>cf /\v^[<\|=>]{7}( .*\|$)<CR>
 
     "Set mapleader
     let mapleader = ","
