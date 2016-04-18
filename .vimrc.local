@@ -17,6 +17,13 @@
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 "    endif
 " 主题
+
+        if strftime("%H") < 12
+          set background=light
+        else
+          set background=dark
+        endif
+
         "set background=light         " Assume a dark background
         "set background=dark
         set t_Co=256
@@ -27,9 +34,9 @@
 
         " Assume a dark background
         "set background=dark
-        "set background=light
-        "colorscheme solarized             " Load a colorscheme
-        "let g:airline_theme = 'solarized'
+        set background=light
+        colorscheme solarized             " Load a colorscheme
+        let g:airline_theme = 'solarized'
         "
         "colorscheme monokai-chris
         "let g:airline_theme = 'molokai'
@@ -42,9 +49,9 @@
         "colorscheme Tomorrow-Night
         "let g:airline_theme = 'tomorrow'
         "
-        set background=light         " Assume a dark background
-        colorscheme hybrid
-        let g:airline_theme = 'hybrid'
+        "set background=light         " Assume a dark background
+        "colorscheme hybrid
+        "let g:airline_theme = 'hybrid'
         "
         "colorscheme zenburn
         "let g:airline_theme = 'zenburn'
@@ -56,6 +63,11 @@
         "
         "colorscheme lucius
         "let g:airline_theme = 'lucius'
+        "
+        "16 base
+        "set background=light         " Assume a dark background
+        "colorscheme wombat
+        "let g:airline_theme = 'hybrid'
 
 highlight clear SignColumn      " SignColumn should match background
 "highlight clear LineNr          " Current line number row will have same background color in relative mode
