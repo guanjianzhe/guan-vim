@@ -16,12 +16,59 @@
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 "    endif
-" 主题
-        if strftime("%H") < 12
-          set background=light
+"
+""""" 主题
+"        if strftime("%H") < 11
+"          set background=light
+"        elseif strftime("%H") < 16
+"          set background=dark
+"        elseif strftime("%H") < 19
+"          set background=light
+"        else
+"          set background=dark
+"        endif
+
+let g:guan_background_switch = "second" "hour, second, light, dark, daynight
+let g:guan_colorscheme_switch = "second" "hour, second, daynight, week
+
+    " This is for days and nights coloring
+    if g:guan_background_switch == "daynight"
+        let current_time_hour = strftime("%H")
+        if current_time_hour < 18 && current_time_hour > 5
+            set background=light
         else
-          set background=dark
+            set background=dark
         endif
+    endif
+
+    " This is for 50% possibility background
+    if g:guan_background_switch == "second"
+        let current_time_second = strftime("%S")
+        if current_time_second % 2 == 1
+            set background=light
+        else
+            set background=dark
+        endif
+    endif
+
+    " This is for hour coloring
+    " 奇数小时未亮
+    if g:guan_background_switch == "hour"
+        let current_time_hour = strftime("%H")
+        if current_time_hour % 2 == 1
+            set background=light
+        else
+            set background=dark
+        endif
+    endif
+
+    if g:guan_background_switch == "light"
+        set background=light
+    endif
+
+    if g:guan_background_switch == "dark"
+        set background=dark
+    endif
 
         "set background=light         " Assume a dark background
         "set background=dark
@@ -33,40 +80,47 @@
 
         " Assume a dark background
         "set background=dark
-        set background=light
-        colorscheme solarized             " Load a colorscheme
-        let g:airline_theme = 'solarized'
+        "set background=light
         "
-        colorscheme monokai-chris
-        let g:airline_theme = 'molokai'
 
-        "colorscheme molokai
-        "colorscheme molokai_dark
+    " This is for 50% possibility background
+    if g:guan_colorscheme_switch == "second"
+        let current_time_second = strftime("%S")
+        if current_time_second % 7 == 0
+            colorscheme solarized             " Load a colorscheme
+            let g:airline_theme = 'solarized'
+        elseif current_time_second % 7 == 1
+            "colorscheme molokai
+            colorscheme molokai_dark
+            let g:airline_theme = 'molokai'
+        elseif current_time_second % 7 == 2
+            "Tomrrow-Night hybrid zenburn
+            colorscheme Tomorrow-Night
+            let g:airline_theme = 'tomorrow'
+        elseif current_time_second % 7 == 3
+            "set background=light         " Assume a dark background
+            colorscheme hybrid
+            let g:airline_theme = 'hybrid'
+        elseif current_time_second % 7 == 4
+            "set background=light         " Assume a dark background
+            colorscheme lucius
+            let g:airline_theme = 'lucius'
+        elseif current_time_second % 7 == 5
+            " jellybeans lucius
+            colorscheme jellybeans
+            let g:airline_theme = 'jellybeans'
+        elseif current_time_second % 7 == 6
+            "set background=light         " Assume a dark background
+            colorscheme wombat
+            let g:airline_theme = 'wombat'
+        endif
+    endif
+
+            "colorscheme zenburn
+            "let g:airline_theme = 'zenburn'
+        "colorscheme monokai-chris
         "let g:airline_theme = 'molokai'
-        "
-        "Tomrrow-Night hybrid zenburn
-        "colorscheme Tomorrow-Night
-        "let g:airline_theme = 'tomorrow'
-        "
-        "set background=light         " Assume a dark background
-        "colorscheme hybrid
-        "let g:airline_theme = 'hybrid'
-        "
-        "colorscheme zenburn
-        "let g:airline_theme = 'zenburn'
-
-        " jellybeans lucius
-        "colorscheme jellybeans
-        "let g:airline_theme = 'jellybeans'
-        "
-        "set background=light         " Assume a dark background
-        "colorscheme lucius
-        "let g:airline_theme = 'lucius'
-        "
         "16 base
-        "set background=light         " Assume a dark background
-        "colorscheme wombat
-        "let g:airline_theme = 'hybrid'
 
 highlight clear SignColumn      " SignColumn should match background
 "highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -109,8 +163,7 @@ language messages zh_CN.utf-8
     " Find merge conflict markers
     " go to merge conflict markers
     " already in spf13
-    "map <leader>gc /\v^[<\|=>]{7}( .*\|$)<CR>
-    map <leader>cf /\v^[<\|=>]{7}( .*\|$)<CR>
+    "map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
     "Set mapleader
     let mapleader = ","
@@ -274,6 +327,20 @@ language messages zh_CN.utf-8
 
 " Plugins {
 
+    " TagBar {
+        if isdirectory(expand("~/.vim/bundle/tagbar/"))
+            "nnoremap <silent> <leader>tt :TagbarToggle<CR>
+            let g:tagbar_width = 30
+        endif
+    "}
+    "
+    " Fugitive {
+        if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+            nnoremap <silent> <leader>gd :Gvdiff<CR>
+            " Mnemonic _i_nteractive
+        endif
+    "}
+
 " Syntastic {
 
 let g:syntastic_auto_loc_list = 0
@@ -301,9 +368,9 @@ let g:syntastic_auto_loc_list = 0
     map <Leader>L <Plug>(easymotion-bd-jk)
     nmap <Leader>L <Plug>(easymotion-overwin-line)
 "
-"    " Move to word
-    map  <Leader>w <Plug>(easymotion-bd-w)
-    nmap <Leader>w <Plug>(easymotion-overwin-w)
+"   " Move to word
+"    map  <Leader>w <Plug>(easymotion-bd-w)
+"    nmap <Leader>w <Plug>(easymotion-overwin-w)
 " }}}
 
 " cscope.vim(brookhong) {{{
