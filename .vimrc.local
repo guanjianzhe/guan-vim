@@ -1,4 +1,3 @@
-"let g:syntastic_always_populate_loc_list = 1
 " General {
 
 " Vim UI {
@@ -157,6 +156,15 @@ language messages zh_CN.utf-8
 "}
 
 " Key (re)Mappings {
+    " Some helpers to edit mode
+    " http://vimcasts.org/e/14
+    "cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+    "map <leader>ew :e %%
+    "map <leader>es :sp %%
+    "map <leader>ev :vsp %%
+    "map <leader>et :tabe %%
+    map <leader>er :tabe ~/
+
     "Fast Ex command
     nnoremap ; :
 
@@ -175,8 +183,8 @@ language messages zh_CN.utf-8
     " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
     "map <space> /
     " 进入搜索Use sane regexes"
-    nnoremap / /\v
-    vnoremap / /\v
+    "nnoremap / /\v
+    "vnoremap / /\v
 
     " Keep search pattern at the center of the screen.
     nnoremap <silent> n nzz
@@ -243,7 +251,10 @@ language messages zh_CN.utf-8
 
     " 新建tab  Ctrl+t
     "nnoremap <C-t>     :tabnew<CR>
-    inoremap <C-t>     <Esc>:tabnew<CR>
+    "inoremap <C-t>     <Esc>:tabnew<CR>
+    "
+    nnoremap <C-n>     :tabnew<CR>
+    inoremap <C-n>     <Esc>:tabnew<CR>
 
     " 命令行模式增强，ctrl - a到行首， -e 到行尾
     cnoremap <C-j> <t_kd>
@@ -343,7 +354,8 @@ language messages zh_CN.utf-8
 
 " Syntastic {
 
-let g:syntastic_auto_loc_list = 0
+        "let g:syntastic_always_populate_loc_list = 1
+        let g:syntastic_auto_loc_list = 0
 
 " }
 " markdown {
@@ -369,8 +381,8 @@ let g:syntastic_auto_loc_list = 0
     nmap <Leader>L <Plug>(easymotion-overwin-line)
 "
 "   " Move to word
-"    map  <Leader>w <Plug>(easymotion-bd-w)
-"    nmap <Leader>w <Plug>(easymotion-overwin-w)
+    map  <Leader>ew <Plug>(easymotion-bd-w)
+    nmap <Leader>ew <Plug>(easymotion-overwin-w)
 " }}}
 
 " cscope.vim(brookhong) {{{
@@ -394,7 +406,7 @@ let g:syntastic_auto_loc_list = 0
     " e: Find this egrep pattern
     nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
     " f: Find this file
-    nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+    "nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
     " i: Find files #including this file
     nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
     " 不再提示更新
