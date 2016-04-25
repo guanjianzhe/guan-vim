@@ -135,7 +135,7 @@ highlight clear SignColumn      " SignColumn should match background
 " 设置环绕换行
 set wrap
 
-highlight clear CursorLineNr    " Remove highlight color from current line number 
+highlight clear CursorLineNr    " Remove highlight color from current line number
     " 突出显示当前列
     "set cursorcolumn
     " 突出显示当前行
@@ -292,25 +292,25 @@ language messages zh_CN.utf-8
                                     "    that won't be autoindented
     " F3 为方便复制，用<F3>开启/关闭行号显示:
     function! HideNumber()
-    	"if(&relativenumber == &number)
-    	"	set relativenumber! number!
-    	"elseif(&number)
-    		set number!
-"    	"else
-    	"    set relativenumber!
-    	"endif
-    	set number?
+        "if(&relativenumber == &number)
+        "    set relativenumber! number!
+        "elseif(&number)
+            set number!
+"        "else
+        "    set relativenumber!
+        "endif
+        set number?
     endfunc
     nnoremap <F3> :call HideNumber()<CR>
 
     function! ToggleMouse()
-    	if(&mouse == 'a')
-    		set mouse=
-    		echo "Mouse usage \"Disabled\""
-    	else
-    		set mouse=a
-    		echo "Mouse usage \"Enabled\""
-    	endif
+        if(&mouse == 'a')
+            set mouse=
+            echo "Mouse usage \"Disabled\""
+        else
+            set mouse=a
+            echo "Mouse usage \"Enabled\""
+        endif
     endfunc
     nnoremap <F4> :call ToggleMouse()<CR>
 
@@ -455,7 +455,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " airline {
    " let g:airline_powerline_fonts = 1
    " " take care don't change it later
-   " "set t_Co=256 
+   " "set t_Co=256
    " " symbols
    " if !exists('g:airline_symbols')
    "     let g:airline_symbols = {}
@@ -468,7 +468,14 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
    " let g:airline_symbols.linenr = '¶'
    " "let g:airline_symbols.branch = '-b'
    " let g:airline_symbols.branch = '⎇'
-   
+
+
+  "let g:airline#extensions#whitespace#enabled = 1
+""* configure the formatting of the warning messages. >
+"  let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+"  let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+"  let g:airline#extensions#whitespace#long_format = 'long[%s]'
+"  let g:airline#extensions#whitespace#mixed_indent_file_format = 'mix-indent-file[%s]'
 
     " "TODO
     "set ambiwidth=double
@@ -480,7 +487,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " 是否打开tabline
     let g:airline#extensions#tabline#enabled = 1
     " tab序号的类型
-    let g:airline#extensions#tabline#tab_nr_type = 1 
+    let g:airline#extensions#tabline#tab_nr_type = 1
     let g:airline#extensions#tabline#buffer_idx_mode = 1
     " configure separators for the tabline only.
     let g:airline#extensions#tabline#left_sep = '|'
@@ -489,7 +496,11 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     let g:airline#extensions#tabline#right_alt_sep = '|'
     " set ttimeoutlen=50
     " 显示完整路径
-    "let g:airline_section_c=airline#section#create(['%F'])
+    "let g:airline_section_b=airline#section#create(['%F'])
+
+    "let g:airline_section_b='%{strftime("%c")}'
+    "let g:airline_section_c='BN: %{bufnr("%")}'
+
     "}
 
    " NerdTree {
@@ -838,15 +849,15 @@ nnoremap <leader>nn   :call NumberToggle()<cr>
 "==========================================
 " others 其它设置
 "==========================================
-" vimrc文件修改之后自动加载, windows
-autocmd! bufwritepost _vimrc source %
-" vimrc文件修改之后自动加载, linux
-autocmd! bufwritepost .vimrc source %
-autocmd! bufwritepost .vimrc.local source %
-autocmd! bufwritepost .vimrc.before source %
-autocmd! bufwritepost .vimrc.before.local source %
-autocmd! bufwritepost .vimrc.bundles source %
-autocmd! bufwritepost .vimrc.bundles.local source %
+"" vimrc文件修改之后自动加载, windows
+"autocmd! bufwritepost _vimrc source %
+"" vimrc文件修改之后自动加载, linux
+"autocmd! bufwritepost .vimrc source %
+"autocmd! bufwritepost .vimrc.local source %
+"autocmd! bufwritepost .vimrc.before source %
+"autocmd! bufwritepost .vimrc.before.local source %
+"autocmd! bufwritepost .vimrc.bundles source %
+"autocmd! bufwritepost .vimrc.bundles.local source %
 
 " TODO
 "autocmd! bufwritepost .vimrc.local source %
