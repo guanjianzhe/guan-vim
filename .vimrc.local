@@ -1,4 +1,6 @@
 " General {
+"
+":autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 
 " Vim UI {
 
@@ -224,6 +226,7 @@ language messages zh_CN.utf-8
     map <leader>tn :tabnext<cr>
     map <leader>tp :tabprev<cr>
 
+    " 新建tab，关闭，？
     map <leader>te :tabedit<cr>
     map <leader>td :tabclose<cr>
     map <leader>tm :tabm<cr>
@@ -263,6 +266,7 @@ language messages zh_CN.utf-8
     cnoremap <C-e> <End>
 
     " 滚动Speed up scrolling of the viewport slightly
+    map <C-E> <ScrollWheelDown>
     nnoremap <C-e> 2<C-e>
     nnoremap <C-y> 2<C-y>
 
@@ -282,13 +286,13 @@ language messages zh_CN.utf-8
                                     "    that won't be autoindented
     " F3 为方便复制，用<F3>开启/关闭行号显示:
     function! HideNumber()
-    	if(&relativenumber == &number)
-    		set relativenumber! number!
-    	elseif(&number)
+    	"if(&relativenumber == &number)
+    	"	set relativenumber! number!
+    	"elseif(&number)
     		set number!
-    	else
-    	    set relativenumber!
-    	endif 
+"    	"else
+    	"    set relativenumber!
+    	"endif
     	set number?
     endfunc
     nnoremap <F3> :call HideNumber()<CR>
@@ -341,7 +345,7 @@ language messages zh_CN.utf-8
     " TagBar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
             "nnoremap <silent> <leader>tt :TagbarToggle<CR>
-            let g:tagbar_width = 30
+            let g:tagbar_width = 35
         endif
     "}
     "
@@ -355,7 +359,14 @@ language messages zh_CN.utf-8
 " Syntastic {
 
         "let g:syntastic_always_populate_loc_list = 1
+        " 不要自动关闭location list
         let g:syntastic_auto_loc_list = 0
+       " let g:syntastic_auto_loc_list = 0
+       "
+       "http://stackoverflow.com/questions/20030603/vim-syntastic-how-to-disable-the-checker
+let g:syntastic_enable_signs = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 
 " }
 " markdown {
@@ -458,7 +469,8 @@ language messages zh_CN.utf-8
     "set noshowmode
     " 如果模式切换慢，则设置：
     " 和快捷键有冲突
-    "set timeoutlen=50
+    " 其实不是冲突，是<leader>要按快点
+    set timeoutlen=380
     " 是否打开tabline
     let g:airline#extensions#tabline#enabled = 1
     " tab序号的类型
@@ -476,9 +488,10 @@ language messages zh_CN.utf-8
 
    " NerdTree {
        if isdirectory(expand("~/.vim/bundle/nerdtree"))
-           map <C-e> <plug>NERDTreeTabsToggle<CR>
-           map <leader>e :NERDTreeFind<CR>
-           nmap <leader>nt :NERDTreeFind<CR>
+           "map <C-e> <plug>NERDTreeTabsToggle<CR>
+           map <leader>nt  <plug>NERDTreeTabsToggle<CR>
+           "map <leader>ne :NERDTreeFind<CR>
+           nmap <leader>nf :NERDTreeFind<CR>
 
            let NERDTreeShowBookmarks=1
            let NERDTreeIgnore=['builtin', 'out', 'tags', '\.cmd$', '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.o$']
@@ -784,14 +797,15 @@ set shortmess=atI
 "" 插入模式下用绝对行号, 普通模式下用相对
 "autocmd InsertEnter * :set norelativenumber number
 "autocmd InsertLeave * :set relativenumber
-"function! NumberToggle()
-"  if(&relativenumber == 1)
-"    set norelativenumber number
-"  else
-"    set relativenumber
-"  endif
-"endfunc
-"nnoremap <C-n> :call NumberToggle()<cr>
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <leader>nn   :call NumberToggle()<cr>
+"nnoremap <C-N> :call NumberToggle()<cr>
 "
 ""==========================================
 "" FileEncode Settings 文件编码,格式
