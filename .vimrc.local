@@ -87,41 +87,47 @@ let g:guan_colorscheme_switch = "second" "hour, second, daynight, week
     " This is for 50% possibility background
     if g:guan_colorscheme_switch == "second"
         let current_time_second = strftime("%S")
-        if current_time_second % 7 == 0
+        "let current_time_second = 2
+        if current_time_second % 8 == 0
             colorscheme solarized             " Load a colorscheme
             let g:airline_theme = 'solarized'
-        elseif current_time_second % 7 == 1
+        elseif current_time_second % 8 == 1
             "colorscheme molokai
             colorscheme molokai_dark
             let g:airline_theme = 'molokai'
-        elseif current_time_second % 7 == 2
+        elseif current_time_second % 8 == 2
             "Tomrrow-Night hybrid zenburn
             colorscheme Tomorrow-Night
             let g:airline_theme = 'tomorrow'
-        elseif current_time_second % 7 == 3
+        elseif current_time_second % 8 == 3
             "set background=light         " Assume a dark background
             colorscheme hybrid
             let g:airline_theme = 'hybrid'
-        elseif current_time_second % 7 == 4
+        elseif current_time_second % 8 == 4
             "set background=light         " Assume a dark background
             colorscheme lucius
             let g:airline_theme = 'lucius'
-        elseif current_time_second % 7 == 5
+        elseif current_time_second % 8 == 5
             " jellybeans lucius
             colorscheme jellybeans
             let g:airline_theme = 'jellybeans'
-        elseif current_time_second % 7 == 6
+        elseif current_time_second % 8 == 6
+            colorschem kolor
+            let g:airline_theme = 'kolor'
+        elseif current_time_second % 8 == 7
             "set background=light         " Assume a dark background
-            colorscheme wombat
-            let g:airline_theme = 'wombat'
+            colorscheme zenburn
+            let g:airline_theme = 'zenburn'
         endif
     endif
-
-            "colorscheme zenburn
-            "let g:airline_theme = 'zenburn'
+" hemisu ;looks good but no airline theme
+            "colorscheme gruvbox  looks good but no airline theme
+            "let g:airline_theme = 'gruvbox'
         "colorscheme monokai-chris
         "let g:airline_theme = 'molokai'
         "16 base
+            "colorscheme wombat
+            "let g:airline_theme = 'wombat'
 
 highlight clear SignColumn      " SignColumn should match background
 "highlight clear LineNr          " Current line number row will have same background color in relative mode
