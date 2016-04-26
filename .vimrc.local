@@ -29,7 +29,7 @@
 "          set background=dark
 "        endif
 
-let g:guan_background_switch = "second" "hour, second, light, dark, daynight
+let g:guan_background_switch = "dark" "hour, second, light, dark, daynight
 let g:guan_colorscheme_switch = "second" "hour, second, daynight, week
 
     " This is for days and nights coloring
@@ -74,21 +74,18 @@ let g:guan_colorscheme_switch = "second" "hour, second, daynight, week
         "set background=light         " Assume a dark background
         "set background=dark
         set t_Co=256
-        "let g:solarized_termcolors=256
-        "let g:solarized_termtrans=1
-        "let g:solarized_contrast="normal"
-        "let g:solarized_visibility="normal"
-
-        " Assume a dark background
-        "set background=dark
-        "set background=light
-        "
 
     " This is for 50% possibility background
     if g:guan_colorscheme_switch == "second"
         let current_time_second = strftime("%S")
-        "let current_time_second = 2
+        let current_time_second = 0
         if current_time_second % 8 == 0
+            "let g:solarized_termcolors=256
+            "let g:solarized_termtrans=1
+            "let g:solarized_contrast="normal"
+            "let g:solarized_visibility="normal"
+            set nolist
+            "highlight clear ??
             colorscheme solarized             " Load a colorscheme
             let g:airline_theme = 'solarized'
         elseif current_time_second % 8 == 1
@@ -314,9 +311,14 @@ language messages zh_CN.utf-8
     endfunc
     nnoremap <F4> :call ToggleMouse()<CR>
 
-   " F5 Grep
-    nnoremap <silent> <F5> :Rgrep<CR>
-
+    " F5 显示可打印字符开关
+    nnoremap <F5> :set list! list?<CR>
+    " F6 换行开关
+    nnoremap <F6> :set wrap! wrap?<CR>
+    
+    " F7 语法开关，关闭语法可以加快大文件的展示
+    nnoremap <F7> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+    
     " disbale paste mode when leaving insert mode
     au InsertLeave * set nopaste
 
@@ -331,7 +333,7 @@ language messages zh_CN.utf-8
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
     "A
-    nnoremap <silent> <F12> :A<CR>
+    "nnoremap <silent> <F12> :A<CR>
 
     "Quickfix
     "nnoremap <silent> <F6> :cn<CR>
@@ -528,7 +530,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
             let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
             let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
             let g:rainbow_conf = {
-                        \   'ctermfgs': (&background=="light"? darkcolors : lightcolors)
+                        \   'ctermfgs': (&background=="light"? darkcolors : darkcolors)
                         \}
         endif
     "}
@@ -578,7 +580,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 " }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"merge k-vim by guan""""""""""""""""""""""""""""""""""""""""""
+"merge k-vim by guan                    """"""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "==========================================
@@ -849,15 +851,15 @@ nnoremap <leader>nn   :call NumberToggle()<cr>
 "==========================================
 " others 其它设置
 "==========================================
-"" vimrc文件修改之后自动加载, windows
-"autocmd! bufwritepost _vimrc source %
-"" vimrc文件修改之后自动加载, linux
-"autocmd! bufwritepost .vimrc source %
-"autocmd! bufwritepost .vimrc.local source %
-"autocmd! bufwritepost .vimrc.before source %
-"autocmd! bufwritepost .vimrc.before.local source %
-"autocmd! bufwritepost .vimrc.bundles source %
-"autocmd! bufwritepost .vimrc.bundles.local source %
+" vimrc文件修改之后自动加载, windows
+autocmd! bufwritepost _vimrc source %
+" vimrc文件修改之后自动加载, linux
+autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .vimrc.local source %
+autocmd! bufwritepost .vimrc.before source %
+autocmd! bufwritepost .vimrc.before.local source %
+autocmd! bufwritepost .vimrc.bundles source %
+autocmd! bufwritepost .vimrc.bundles.local source %
 
 " TODO
 "autocmd! bufwritepost .vimrc.local source %
