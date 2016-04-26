@@ -84,8 +84,11 @@ let g:guan_colorscheme_switch = "second" "hour, second, daynight, week
             "let g:solarized_termtrans=1
             "let g:solarized_contrast="normal"
             "let g:solarized_visibility="normal"
-            set nolist
+            "set nolist
             "highlight clear ??
+            " g:solarized_visibility =  "normal" (default)   "high" or "low"
+            " https://github.com/altercation/vim-colors-solarized/issues/5
+            let g:solarized_visibility= "low"
             colorscheme solarized             " Load a colorscheme
             let g:airline_theme = 'solarized'
         elseif current_time_second % 8 == 1
@@ -1269,4 +1272,13 @@ highlight clear SpellRare
 "highlight SpellLocal term=underline cterm=underline
 "
 "
-"
+"k-vim add:
+
+            "" 防止tmux下vim的背景色显示异常
+            "" Refer: http://sunaku.github.io/vim-256color-bce.html
+            ""if &term =~ '256color'
+            "  " disable Background Color Erase (BCE) so that color schemes
+            "  " render properly when inside 256-color tmux and GNU screen.
+            "  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+            "  set t_ut=
+            ""endif
