@@ -10,6 +10,8 @@
     3. 自动生产git仓库的tags: guan-vim/ctags_with_git, 里面有个简单的READ.md
     4. enjoy it!
 
+    5. Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
+
 ## 快捷键
  1. 初步了解
      - 看http://vim.spf13.com/的插件介绍

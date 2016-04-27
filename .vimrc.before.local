@@ -28,7 +28,7 @@ let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme',]
     " presence of `:set wrap`, and relative to line for `:set nowrap`.
     " Default vim behaviour is to act relative to text line in both cases
     " If you prefer the default behaviour, add the following to your
-    " .vimrc.before.local file:          
+    " .vimrc.before.local file:
        "let g:spf13_no_wrapRelMotion = 1
        "
     " vim-airline {
