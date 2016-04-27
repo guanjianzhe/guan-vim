@@ -164,15 +164,6 @@ language messages zh_CN.utf-8
 "}
 
 " Key (re)Mappings {
-    " Some helpers to edit mode
-    " http://vimcasts.org/e/14
-    "cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-    "map <leader>ew :e %%
-    "map <leader>es :sp %%
-    "map <leader>ev :vsp %%
-    "map <leader>et :tabe %%
-    map <leader>er :tabe ~/
-
     "Fast Ex command
     nnoremap ; :
 
@@ -185,6 +176,17 @@ language messages zh_CN.utf-8
     let mapleader = ","
     let g:mapleader = ","
 
+    " Some helpers to edit mode
+    " http://vimcasts.org/e/14
+    cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+    map <leader>ew :e %%
+    map <leader>es :sp %%
+    map <leader>ev :vsp %%
+    "map <leader>et :tabe %%
+    map <leader>er :tabe ~/
+    map <leader>et :tab sp<cr>
+
+    map <leader>vr :vertical res 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " 搜索相关
@@ -1126,13 +1128,13 @@ autocmd! bufwritepost .vimrc.bundles.local source %
 "" 增强tab操作, 导致这个会有问题, 考虑换键
 ""nmap t o<ESC>k
 ""nmap T O<ESC>j
-"
-"" Quickly close the current window
-"nnoremap <leader>q :q<CR>
-"
-"" Quickly save the current file
-"nnoremap <leader>w :w<CR>
-"
+
+" Quickly close the current window
+nnoremap <leader>q :q<CR>
+
+" Quickly save the current file
+nnoremap <leader>w :w<CR>
+
 "" 交换 ' `, 使得可以快速使用'跳到marked位置
 "nnoremap ' `
 "nnoremap ` '
