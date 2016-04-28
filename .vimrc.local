@@ -264,8 +264,8 @@ language messages zh_CN.utf-8
     "nnoremap <C-t>     :tabnew<CR>
     "inoremap <C-t>     <Esc>:tabnew<CR>
     "
-    nnoremap <C-n>     :tabnew<CR>
-    inoremap <C-n>     <Esc>:tabnew<CR>
+    nnoremap <C-n>     :tab sp<CR>
+    inoremap <C-n>     :tab sp<CR>
 
     " 命令行模式增强，ctrl - a到行首， -e 到行尾
     cnoremap <C-j> <t_kd>
@@ -282,17 +282,17 @@ language messages zh_CN.utf-8
 
     " F1 - F8 设置
 
-    " F1 NERDTree开关
-    nnoremap <F1> :NERDTreeToggle<CR>
+    " F3 NERDTree开关
+    nnoremap <F3> :NERDTreeToggle<CR>
     " F1 废弃这个键,防止调出系统帮助
     " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
     "noremap <F1> <Esc>"
 
-    " F2 行号开关，用于鼠标复制代码用
-    set pastetoggle=<F2>            "    when in insert mode, press <F2> to go to
+    " F12 行号开关，用于鼠标复制代码用
+    "set pastetoggle=<F2>            "    when in insert mode, press <F2> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
-    " F3 为方便复制，用<F3>开启/关闭行号显示:
+    " F5 为方便复制，用<F5>开启/关闭行号显示:
     function! HideNumber()
         "if(&relativenumber == &number)
         "    set relativenumber! number!
@@ -303,7 +303,7 @@ language messages zh_CN.utf-8
         "endif
         set number?
     endfunc
-    nnoremap <F3> :call HideNumber()<CR>
+    nnoremap <F5> :call HideNumber()<CR>
 
     function! ToggleMouse()
         if(&mouse == 'a')
@@ -314,15 +314,15 @@ language messages zh_CN.utf-8
             echo "Mouse usage \"Enabled\""
         endif
     endfunc
-    nnoremap <F4> :call ToggleMouse()<CR>
+    nnoremap <F9> :call ToggleMouse()<CR>
 
-    " F5 显示可打印字符开关
-    nnoremap <F5> :set list! list?<CR>
+    " F7 显示可打印字符开关
+    nnoremap <F7> :set list! list?<CR>
     " F6 换行开关
     nnoremap <F6> :set wrap! wrap?<CR>
     
     " F7 语法开关，关闭语法可以加快大文件的展示
-    nnoremap <F7> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+    nnoremap <F8> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
     
     " disbale paste mode when leaving insert mode
     au InsertLeave * set nopaste
@@ -358,6 +358,7 @@ language messages zh_CN.utf-8
     " TagBar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
             "nnoremap <silent> <leader>tt :TagbarToggle<CR>
+            nnoremap <F4> :TagbarToggle<CR>
             let g:tagbar_width = 35
         endif
     "}
@@ -393,6 +394,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
 "}
 
 " easymotion {{{
+    "map <Leader> <Plug>(easymotion-prefix)
 "    " <Leader>f{char} to move to {char}
 "    map  <Leader>f <Plug>(easymotion-bd-f)
 "    nmap <Leader>f <Plug>(easymotion-overwin-f)
@@ -457,6 +459,8 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             map <leader>ru :CtrlPMRU<CR>
+            nnoremap <F2> :CtrlPMRU<CR>
+            "let g:ctrlp_prompt_mappings = { 'ToggleMRURelative()': ['<F2>'] }
         endif
     "}
     " airline {
@@ -531,10 +535,10 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " Rainbow {
         if isdirectory(expand("~/.vim/bundle/rainbow/"))
             "let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
-            nmap <leader>rb :RainbowToggle<CR>
+            nmap <leaber>rb :RainbowToggle<CR>
             let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
             "let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
-            let darkcolors = ['DarkBlue', 'Magenta', 'darkyellow', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
+            let darkcolors = ['DarkBlue', 'Magenta', 'DarkGray', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
             let g:rainbow_conf = {
                         \   'ctermfgs': (&background=="light"? darkcolors : darkcolors)
                         \}
