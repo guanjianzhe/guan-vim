@@ -289,7 +289,7 @@ language messages zh_CN.utf-8
     "noremap <F1> <Esc>"
 
     " F12 行号开关，用于鼠标复制代码用
-    "set pastetoggle=<F2>            "    when in insert mode, press <F2> to go to
+    set pastetoggle=<F10>            "    when in insert mode, press <F2> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
     " F5 为方便复制，用<F5>开启/关闭行号显示:
@@ -321,9 +321,16 @@ language messages zh_CN.utf-8
     " F6 换行开关
     nnoremap <F6> :set wrap! wrap?<CR>
     
-    " F7 语法开关，关闭语法可以加快大文件的展示
+    "" F7 语法开关，关闭语法可以加快大文件的展示
+    "function! ToggleSyntax()
+    "    "if(&relativenumber == &number)
+    "    "elseif(&number)
+"   "     "else
+    "    "endif    <CR> :RainbowToggle
+    "    set number?
+    "endfunc
     nnoremap <F8> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
-    
+
     " disbale paste mode when leaving insert mode
     au InsertLeave * set nopaste
 
@@ -535,7 +542,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " Rainbow {
         if isdirectory(expand("~/.vim/bundle/rainbow/"))
             "let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
-            nmap <leaber>rb :RainbowToggle<CR>
+            nmap <leader>rb :RainbowToggle<CR>
             let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
             "let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
             let darkcolors = ['DarkBlue', 'Magenta', 'DarkGray', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
