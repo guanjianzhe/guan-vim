@@ -545,7 +545,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
             nmap <leader>rb :RainbowToggle<CR>
             let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
             "let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
-            let darkcolors = ['DarkBlue', 'Magenta', 'DarkGray', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
+            let darkcolors = ['DarkBlue', 'Magenta', 'DarkGray', 'DarkYellow', 'DarkGreen', 'Red', 'Gray']
             let g:rainbow_conf = {
                         \   'ctermfgs': (&background=="light"? darkcolors : darkcolors)
                         \}
