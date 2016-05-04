@@ -282,14 +282,14 @@ language messages zh_CN.utf-8
 
     " F1 - F8 设置
 
-    " F3 NERDTree开关
-    nnoremap <F3> :NERDTreeToggle<CR>
+    " F2 NERDTree开关
+    nnoremap <F2> :NERDTreeToggle<CR>
     " F1 废弃这个键,防止调出系统帮助
     " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
     "noremap <F1> <Esc>"
 
     " F12 行号开关，用于鼠标复制代码用
-    set pastetoggle=<F10>            "    when in insert mode, press <F2> to go to
+    set pastetoggle=<F10>            "    when in insert mode, press <F10> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
     " F5 为方便复制，用<F5>开启/关闭行号显示:
@@ -466,7 +466,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             map <leader>ru :CtrlPMRU<CR>
-            nnoremap <F2> :CtrlPMRU<CR>
+            nnoremap <F3> :CtrlPMRU<CR>
             "let g:ctrlp_prompt_mappings = { 'ToggleMRURelative()': ['<F2>'] }
         endif
     "}
