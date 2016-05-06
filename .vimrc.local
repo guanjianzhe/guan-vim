@@ -281,18 +281,17 @@ language messages zh_CN.utf-8
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " F1 - F8 设置
-
     " F2 NERDTree开关
     nnoremap <F2> :NERDTreeToggle<CR>
     " F1 废弃这个键,防止调出系统帮助
     " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
     "noremap <F1> <Esc>"
 
-    " F12 行号开关，用于鼠标复制代码用
-    set pastetoggle=<F10>            "    when in insert mode, press <F10> to go to
+    " F1 粘贴开关，用于鼠标复制代码用
+    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
-    " F5 为方便复制，用<F5>开启/关闭行号显示:
+    " F3 为方便复制，用<F3>开启/关闭行号显示:
     function! HideNumber()
         "if(&relativenumber == &number)
         "    set relativenumber! number!
@@ -303,7 +302,7 @@ language messages zh_CN.utf-8
         "endif
         set number?
     endfunc
-    nnoremap <F5> :call HideNumber()<CR>
+    nnoremap <F3> :call HideNumber()<CR>
 
     function! ToggleMouse()
         if(&mouse == 'a')
@@ -329,7 +328,7 @@ language messages zh_CN.utf-8
     "    "endif    <CR> :RainbowToggle
     "    set number?
     "endfunc
-    nnoremap <F8> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+    nnoremap <F10> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
     " disbale paste mode when leaving insert mode
     au InsertLeave * set nopaste
@@ -466,7 +465,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             map <leader>ru :CtrlPMRU<CR>
-            nnoremap <F3> :CtrlPMRU<CR>
+            nnoremap <F8> :CtrlPMRU<CR>
             "let g:ctrlp_prompt_mappings = { 'ToggleMRURelative()': ['<F2>'] }
         endif
     "}
