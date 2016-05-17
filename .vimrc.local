@@ -82,10 +82,9 @@ let g:guan_colorscheme_switch = "second" "hour, second, daynight, week
         if current_time_second % 8 == 0
             "let g:solarized_termcolors=256
             "let g:solarized_termtrans=1
-            "let g:solarized_contrast="normal"
-            "let g:solarized_visibility="normal"
+            let g:solarized_contrast="normal"
+            let g:solarized_visibility="normal"
             "set nolist
-            "highlight clear ??
             " g:solarized_visibility =  "normal" (default)   "high" or "low"
             " https://github.com/altercation/vim-colors-solarized/issues/5
             let g:solarized_visibility= "low"
@@ -487,7 +486,10 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
    " let g:airline_symbols.branch = '⎇'
 
 
-  "let g:airline#extensions#whitespace#enabled = 1
+    " TODO: put this to really .vimrc.local later...
+    let g:airline#extensions#whitespace#enabled = 0
+    "let g:airline#extensions#whitespace#mixed_indent_algo = 0 (default)
+    "let g:airline#extensions#whitespace#enabled = 1
 ""* configure the formatting of the warning messages. >
 "  let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 "  let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
