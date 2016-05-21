@@ -7,6 +7,9 @@
         和 .guan-vim中的.vimrc.local .vimrc.before.local .vimrc.bundles.local
         这6个文件，都在用户目录创建同名的软链接：
         ln -s <目标名> <链接名>
+    2.2 下载 https://github.com/altercation/solarized，使用putty-colors-solarized。
+        或者使用我仓库里面下载好的文件：putty-colors-solarized 。
+
     3. 自动生产git仓库的tags: guan-vim/ctags_with_git, 里面有个简单的READ.md
     4. enjoy it!
 
