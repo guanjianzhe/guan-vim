@@ -287,7 +287,7 @@ language messages zh_CN.utf-8
     "noremap <F1> <Esc>"
 
     " F1 粘贴开关，用于鼠标复制代码用
-    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
+    set pastetoggle=<F6>            "    when in insert mode, press <F10> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
     " F3 为方便复制，用<F3>开启/关闭行号显示:
@@ -301,7 +301,7 @@ language messages zh_CN.utf-8
         "endif
         set number?
     endfunc
-    nnoremap <F3> :call HideNumber()<CR>
+    nnoremap <F5> :call HideNumber()<CR>
 
     function! ToggleMouse()
         if(&mouse == 'a')
@@ -315,9 +315,9 @@ language messages zh_CN.utf-8
     nnoremap <F9> :call ToggleMouse()<CR>
 
     " F7 显示可打印字符开关
-    nnoremap <F7> :set list! list?<CR>
+    nnoremap <F8> :set list! list?<CR>
     " F6 换行开关
-    nnoremap <F6> :set wrap! wrap?<CR>
+    nnoremap <F7> :set wrap! wrap?<CR>
     
     "" F7 语法开关，关闭语法可以加快大文件的展示
     "function! ToggleSyntax()
@@ -464,7 +464,7 @@ nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
     " ctrlp {
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             map <leader>ru :CtrlPMRU<CR>
-            nnoremap <F8> :CtrlPMRU<CR>
+            nnoremap <F3> :CtrlPMRU<CR>
             "let g:ctrlp_prompt_mappings = { 'ToggleMRURelative()': ['<F2>'] }
         endif
     "}
