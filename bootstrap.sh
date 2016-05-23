@@ -19,8 +19,8 @@ app_name='spf13-vim'
 [ -z "$APP_PATH" ] && APP_PATH="$HOME/.spf13-vim-3"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/spf13/spf13-vim.git'
 [ -z "$REPO_BRANCH" ] && REPO_BRANCH='3.0'
-debug_mode='0'
-fork_maintainer='0'
+debug_mode='1'
+fork_maintainer='1'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
 
 # guan-vim 仓库环境变量
@@ -29,7 +29,7 @@ guan_app_name='guan-vim'
 [ -z "$GUAN_REPO_URI" ] && GUAN_REPO_URI='https://github.com/guanjianzhe/guan-vim.git'
 [ -z "$GUAN_REPO_BRANCH" ] && GUAN_REPO_BRANCH='master'
 # 1: 没有网络
-no_network_mode='0'
+no_network_mode='1'
 
 ############################  BASIC SETUP TOOLS
 msg() {
@@ -155,6 +155,7 @@ setup_fork_mode() {
     local source_path="$2"
     local target_path="$3"
 
+        success "setup_fork_mode...."
     if [ "$1" -eq '1' ]; then
         touch "$target_path/.vimrc.fork"
         touch "$target_path/.vimrc.bundles.fork"
@@ -163,6 +164,17 @@ setup_fork_mode() {
         lnif "$source_path/.vimrc.fork"         "$target_path/.vimrc.fork"
         lnif "$source_path/.vimrc.bundles.fork" "$target_path/.vimrc.bundles.fork"
         lnif "$source_path/.vimrc.before.fork"  "$target_path/.vimrc.before.fork"
+
+        # put my bashrc, gitconfig and ctag with git here
+        touch "$target_path/.bashrc"
+        touch "$target_path/.bash_aliases"
+        touch "$target_path/.gitconfig"
+        touch "$target_path/.git_template"
+
+        lnif "$source_path/tools/bash_configs/.bashrc"          "$target_path/.bashrc"
+        lnif "$source_path/tools/bash_configs/.bash_aliases"    "$target_path/.bash_aliases"
+        lnif "$source_path/tools/bash_configs/.gitconfig"       "$target_path/.gitconfig"
+        lnif "$source_path/tools/ctags_with_git/.git_template"  "$target_path/.git_template"
 
         ret="$?"
         success "Created fork maintainer files."
@@ -198,10 +210,9 @@ variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
 
-# TODO: uncomment this
-#do_backup       "$HOME/.vim" \
-#                "$HOME/.vimrc" \
-#                "$HOME/.gvimrc"
+do_backup       "$HOME/.vim" \
+                "$HOME/.vimrc" \
+                "$HOME/.gvimrc"
 
 # repo sync spf13-vim
 sync_repo       "$APP_PATH" \
@@ -217,11 +228,6 @@ sync_repo       "$GUAN_APP_PATH" \
                 "$REPO_URI" \
                 "$GUAN_REPO_BRANCH" \
                 "$guan_app_name"
-
-## put my bashrc, gitconfig and ctag with git here
-#ln -sf ~/.guan-vim/tools/bash_configs/.bashrc ~/.bashrc 
-#ln -sf ~/.guan-vim/tools/bash_configs/.bash_aliases ~/.bash_aliases
-#ln -sf ~/.guan-vim/tools/bash_configs/.gitconfig ~/.gitconfig
 
 # *.fork symlinks change to guan-vim directory
 setup_fork_mode "$fork_maintainer" \
