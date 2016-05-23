@@ -58,6 +58,9 @@
             Bundle 'brookhong/cscope.vim'
             Bundle 'lilydjwg/fcitx.vim'
             "Bundle 'suan/vim-instant-markdown'
+            Bundle 'seebi/dircolors-solarized'
+            Bundle 'sigurdga/gnome-terminal-colors-solarized'
+            Bundle 'altercation/solarized'
             " end of guan customize
 
 "            " Pick one of the checksyntax, jslint, or syntastic

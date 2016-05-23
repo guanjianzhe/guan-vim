@@ -15,13 +15,21 @@
 #   limitations under the License.
 
 ############################  SETUP PARAMETERS
-app_name='guan-vim'
-[ -z "$APP_PATH" ] && APP_PATH="$HOME/.guan-vim"
+app_name='spf13-vim'
+[ -z "$APP_PATH" ] && APP_PATH="$HOME/.spf13-vim-3"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/spf13/spf13-vim.git'
-[ -z "$REPO_BRANCH" ] && REPO_BRANCH='master'
+[ -z "$REPO_BRANCH" ] && REPO_BRANCH='3.0'
 debug_mode='0'
 fork_maintainer='0'
-#[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
+[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
+
+# guan-vim 仓库环境变量
+guan_app_name='guan-vim'
+[ -z "$GUAN_APP_PATH" ] && GUAN_APP_PATH="$HOME/.guan-vim"
+[ -z "$GUAN_REPO_URI" ] && GUAN_REPO_URI='https://github.com/guanjianzhe/guan-vim.git'
+[ -z "$GUAN_REPO_BRANCH" ] && GUAN_REPO_BRANCH='master'
+# 1: 没有网络
+no_network_mode='0'
 
 ############################  BASIC SETUP TOOLS
 msg() {
@@ -101,6 +109,11 @@ sync_repo() {
     local repo_branch="$3"
     local repo_name="$4"
 
+    if [ "$no_network_mode" -eq '1' ]; then
+        msg "Your are in no_network_mode. Will NOT sync from github."
+        return 1
+    fi
+
     msg "Trying to update $repo_name"
 
     if [ ! -e "$repo_path" ]; then
@@ -121,16 +134,23 @@ create_symlinks() {
     local source_path="$1"
     local target_path="$2"
 
-    lnif "$source_path/.vimrc.before.local"  "$target_path/.vimrc.before.local"
-    lnif "$source_path/.vimrc.before.local"  "$target_path/.vimrc.before.local"
-    lnif "$source_path/.vimrc.bundles.local" "$target_path/.vimrc.bundles.local"
+    lnif "$source_path/.vimrc"         "$target_path/.vimrc"
+    lnif "$source_path/.vimrc.bundles" "$target_path/.vimrc.bundles"
+    lnif "$source_path/.vimrc.before"  "$target_path/.vimrc.before"
+    lnif "$source_path/.vim"           "$target_path/.vim"
+
+    if program_exists "nvim"; then
+        lnif "$source_path/.vim"       "$target_path/.config/nvim"
+        lnif "$source_path/.vimrc"     "$target_path/.config/nvim/init.vim"
+    fi
+
+    touch  "$target_path/.vimrc.local"
 
     ret="$?"
-    success "Setting up vimrc local symlinks."
+    success "Setting up vim symlinks."
     debug
 }
 
-# TODO
 setup_fork_mode() {
     local source_path="$2"
     local target_path="$3"
@@ -151,6 +171,12 @@ setup_fork_mode() {
 }
 
 setup_vundle() {
+
+    if [ "$no_network_mode" -eq '1' ]; then
+        msg "Your are in no_network_mode. Will NOT sync from github."
+        return 1
+    fi
+
     local system_shell="$SHELL"
     export SHELL='/bin/sh'
 
@@ -172,29 +198,44 @@ variable_set "$HOME"
 program_must_exist "vim"
 program_must_exist "git"
 
-do_backup       "$HOME/.vimrc.local" \
-                "$HOME/.vimrc.bundle.local" \
-                "$HOME/.vimrc.local"
+# TODO: uncomment this
+#do_backup       "$HOME/.vim" \
+#                "$HOME/.vimrc" \
+#                "$HOME/.gvimrc"
 
+# repo sync spf13-vim
 sync_repo       "$APP_PATH" \
                 "$REPO_URI" \
                 "$REPO_BRANCH" \
                 "$app_name"
-
+# links for spf13-vim
 create_symlinks "$APP_PATH" \
                 "$HOME"
 
-# put my bashrc, gitconfig and ctag with git here
+# repo sync guan-vim
+sync_repo       "$GUAN_APP_PATH" \
+                "$REPO_URI" \
+                "$GUAN_REPO_BRANCH" \
+                "$guan_app_name"
+
+## put my bashrc, gitconfig and ctag with git here
+#ln -sf ~/.guan-vim/tools/bash_configs/.bashrc ~/.bashrc 
+#ln -sf ~/.guan-vim/tools/bash_configs/.bash_aliases ~/.bash_aliases
+#ln -sf ~/.guan-vim/tools/bash_configs/.gitconfig ~/.gitconfig
+
+# *.fork symlinks change to guan-vim directory
 setup_fork_mode "$fork_maintainer" \
-                "$APP_PATH" \
+                "$GUAN_APP_PATH" \
                 "$HOME"
 
+sync_repo       "$HOME/.vim/bundle/vundle" \
+                "$VUNDLE_URI" \
+                "master" \
+                "vundle"
+
+# why using default bundles setting??
 setup_vundle    "$APP_PATH/.vimrc.bundles.default"
 
 msg             "\nThanks for installing $app_name."
 msg             "© `date +%Y` http://vim.spf13.com/"
 
-# use this command
-#ln -s ~/.guan-vim/.vimrc.before.local .vimrc.before.local
-#ln -s ~/.guan-vim/.vimrc.local .vimrc.local
-#ln -s ~/.guan-vim/.vimrc.bundles.local .vimrc.bundles.local
