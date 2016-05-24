@@ -30,10 +30,12 @@ alias mount18='sudo mount //192.168.200.18/Documents         ~/servers/18server/
 alias mount60='sudo mount -t cifs -o username=guanjianzhe,password=guan@2016,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.60/guanjianzhe/ ~/servers/60server/'
 alias mount27='sudo mount -t cifs -o username=guanjianzhe,password=guan@2015,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.27/guanjianzhe/ ~/servers/27server/'
 alias mount106='sudo mount -t cifs -o username=pd1,password=password,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.106/pd1/ ~/servers/106server/'
+alias mounttempForWork='sudo mount -t cifs -o username=csjamesdeng,password=pd123456,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.60/csjamesdeng/ ~/servers/tempForWork/'
 #alias mount106='sudo mount -t cifs -o username=pd1,passwd=pd123456,noperm //192.168.200.106/pd1 /server106_pd1'
 #alias mount106='sudo mount -t cifs -o username=pd1,passwd=guan@2016,noperm //192.168.200.106/pd1 /server106_pd1'
 
 # 常用命令
+alias sshdeng='ssh csjamesdeng@192.168.200.60'
 alias ssh60='ssh guanjianzhe@192.168.200.60'
 alias ssh27='ssh guanjianzhe@192.168.200.27'
 alias ssh106='ssh pd1@192.168.200.106'

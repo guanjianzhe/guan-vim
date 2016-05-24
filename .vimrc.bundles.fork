@@ -54,23 +54,22 @@
 
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
-            " guan customize
+
+            "----- guan customize
             Bundle 'brookhong/cscope.vim'
             Bundle 'lilydjwg/fcitx.vim'
             "Bundle 'suan/vim-instant-markdown'
             Bundle 'seebi/dircolors-solarized'
             Bundle 'sigurdga/gnome-terminal-colors-solarized'
-            Bundle 'altercation/solarized'
-
             "if count(g:bundle_groups, 'tmux')
                 " tmux
                 " For tmux navigator Ctrl-hjkl
                 Bundle 'christoomey/vim-tmux-navigator'
                 Bundle 'edkolev/tmuxline.vim'
-
             "endif
-
-            " end of guan customize
+            "Bundle 'altercation/solarized'
+            Bundle 'wklken/k-tmux'
+            "----- end of guan customize
 
 "            " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
