@@ -15,6 +15,19 @@
 
     5. Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
 
+install::
+ - https://github.com/edkolev/tmuxline.vim
+
+:Tmuxline airline_insert
+
+http://stackoverflow.com/questions/9652126/bashrc-profile-is-not-loaded-on-new-tmux-session-or-window-why
+Yes, at the end of your .bash_profile, put the line:
+
+. ~/.bashrc
+This automatically sources the rc file under those circumstances where it would normally only process the profile.
+
+
+
 ## 快捷键
  1. 初步了解
      - 看http://vim.spf13.com/的插件介绍

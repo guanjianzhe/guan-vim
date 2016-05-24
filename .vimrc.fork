@@ -1,11 +1,6 @@
 " General {
 "
 ":autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
-set mouse+=a
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
 " Vim UI {
 
 "    if has('statusline')
@@ -363,6 +358,22 @@ language messages zh_CN.utf-8
 " }
 
 " Plugins {
+
+    " tmuxline  {
+        " let vim using mouse drag to resize windows
+        set mouse+=a
+        if &term =~ '^screen'
+            " tmux knows the extended mouse mode
+            set ttymouse=xterm2
+        endif
+        
+        " setting tmux color
+        let g:airline#extensions#tmuxline#enabled = 0
+        "let g:tmuxline_preset = 'full'
+        "let g:tmuxline_preset = 'nightly_fox'
+        "crosshair.vim  full.vim  minimal.vim  nightly_fox.vim  powerline.vim
+        "righteous.vim  tmux.vim
+        "run this onetime   :Tmuxline airline
 
     " TagBar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
