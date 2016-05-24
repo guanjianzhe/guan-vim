@@ -61,6 +61,15 @@
             Bundle 'seebi/dircolors-solarized'
             Bundle 'sigurdga/gnome-terminal-colors-solarized'
             Bundle 'altercation/solarized'
+
+            "if count(g:bundle_groups, 'tmux')
+                " tmux
+                " For tmux navigator Ctrl-hjkl
+                Bundle 'christoomey/vim-tmux-navigator'
+                Bundle 'edkolev/tmuxline.vim'
+
+            "endif
+
             " end of guan customize
 
 "            " Pick one of the checksyntax, jslint, or syntastic

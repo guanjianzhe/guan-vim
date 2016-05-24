@@ -1,7 +1,11 @@
 " General {
 "
 ":autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
-
+set mouse+=a
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 " Vim UI {
 
 "    if has('statusline')
