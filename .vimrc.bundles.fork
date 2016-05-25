@@ -66,9 +66,12 @@
                 " For tmux navigator Ctrl-hjkl
                 Bundle 'christoomey/vim-tmux-navigator'
                 Bundle 'edkolev/tmuxline.vim'
+                " TODO customize it to guanjianzhe/.tmux
+                "Bundle 'gpakosz/.tmux'
+                "Bundle 'guanjianzhe/.tmux'
+                "Bundle 'wklken/k-tmux'
             "endif
             "Bundle 'altercation/solarized'
-            Bundle 'wklken/k-tmux'
             "----- end of guan customize
 
 "            " Pick one of the checksyntax, jslint, or syntastic

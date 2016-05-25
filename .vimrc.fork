@@ -369,6 +369,7 @@ language messages zh_CN.utf-8
         
         " setting tmux color
         let g:airline#extensions#tmuxline#enabled = 0
+        let g:tmuxline_theme = 'airline_insert'
         "let g:tmuxline_preset = 'full'
         "let g:tmuxline_preset = 'nightly_fox'
         "crosshair.vim  full.vim  minimal.vim  nightly_fox.vim  powerline.vim
