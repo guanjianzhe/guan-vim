@@ -41,20 +41,21 @@ ln -s <目标名> <链接名>
     `eval 'dircolors .dircolors'
 ```
 #### 3.3 检测bash环境，是否支持256color
-    ubuntu下`echo $xterm`检测，如果不支持，在.bashrc中添加：
+ubuntu下`echo $xterm`检测，如果不支持，在.bashrc中添加：
 ```bash
     if [ "$TERM" == "xterm"  ]; then
         export TERM=xterm-256color
     fi
 ```
 
-### 4. 自动生产git仓库的tags: .guan-vim/tools/ctags_with_git, 里面有个简单的READ.md
-安装文档设置完成后，加入到.bashrc:
+### 4. 自动生产git仓库的tags
+.guan-vim/tools/ctags_with_git, 里面有个简单的READ.md
+安装文档设置完成后，将下面加入到.bashrc，使用英文版的git:
 ```bash
-        # impotant for git
-        export LANGUAGE='en_US.UTF-8 git'
+    # impotant for git
+    export LANGUAGE='en_US.UTF-8 git'
 ```
-     Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
+    Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
 
 ### 5. 如果你有网络，有管理员权限，安装自动补全插件 YouCompleteMe
 ```bash
