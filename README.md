@@ -1,6 +1,5 @@
-# README临时版
+# README(目前进度：1. 安装)
 
-    
        _______  __    __       ___      .__   __.      ____    ____  __  .___  ___.
       /  _____||  |  |  |     /   \     |  \ |  |      \   \  /   / |  | |   \/   |
      |  |  __  |  |  |  |    /  ^  \    |   \|  |  _____\   \/   /  |  | |  \  /  |
@@ -9,13 +8,13 @@
       \______|  \______/  /__/     \__\ |__| \__|          \__/     |__| |__|  |__|
 
 ## 1. 安装
-    1. 复制.guan-vim和.spf13-vim-3到你的用户目录。
+1. 复制.guan-vim和.spf13-vim-3到你的用户目录。
 
-    2. 用脚本安装
-    ```bash
+2. 用脚本安装
+```bash
     cd ~/.guan-vim
     ./bootstrap.sh
-    ```
+```
     脚本中会创建6个软连接：
         .spf13-vim-3中的.vimrc .vimrc.local .vimrc.bundles 
         和 .guan-vim中的.vimrc.local .vimrc.before.local .vimrc.bundles.local
@@ -29,39 +28,39 @@
             在windwos环境，双击目录下的solarized_dark.reg即完成配置。进入putty后选择名为Solarize的session。
             详情查自带的文档：README.mkd
          - ubuntu的terminal设置
-            ```bash
-            cd .vim/bundle/gnome-terminal-colors-solarized/
-            ./set_dark.sh
-            ```
+```bash
+    cd .vim/bundle/gnome-terminal-colors-solarized/
+    ./set_dark.sh
+```
             详情查自带的文档：README.mkd
          - 其它终端的设置，请查看https://github.com/altercation/solarized。
 
     3.2 设置目录的配色，这样ls的时候，字体不会模糊，配色更好看。
-        ```bash
-        `cp ~/.vim/bundle/dircolors-solarized/dircolors.256dark ~/.dircolors`
-        `eval 'dircolors .dircolors'
-        ```
+```bash
+    `cp ~/.vim/bundle/dircolors-solarized/dircolors.256dark ~/.dircolors`
+    `eval 'dircolors .dircolors'
+```
     3.3 检测bash环境，是否支持256color
     ubuntu下`echo $xterm`检测，如果不支持，在.bashrc中添加：
-    ```bash
+```bash
     if [ "$TERM" == "xterm"  ]; then
         export TERM=xterm-256color
     fi
-    ```
+```
 
     4. 自动生产git仓库的tags: .guan-vim/tools/ctags_with_git, 里面有个简单的READ.md
         加入到.bashrc:
-        ```bash
+```bash
         # impotant for git
         export LANGUAGE='en_US.UTF-8 git'
-        ```
+```
     4. Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
 
     5. 如果你有网络，有管理员权限，安装自动补全插件 YouCompleteMe
-    ```bash
+```bash
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py --clang-completer
-    ```
+```
 
     6. enjoy it!
 
