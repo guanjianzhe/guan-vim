@@ -8,39 +8,39 @@
       \______|  \______/  /__/     \__\ |__| \__|          \__/     |__| |__|  |__|
 
 ## 1. 安装
-1. 复制.guan-vim和.spf13-vim-3到你的用户目录。
+### 1. 复制.guan-vim和.spf13-vim-3到你的用户目录。
 
-2. 用脚本安装
+### 2. 用脚本安装
 ```bash
     cd ~/.guan-vim
     ./bootstrap.sh
 ```
-    脚本中会创建6个软连接：
-        .spf13-vim-3中的.vimrc .vimrc.local .vimrc.bundles 
-        和 .guan-vim中的.vimrc.local .vimrc.before.local .vimrc.bundles.local
-        这6个文件，都在用户目录创建同名的软链接：
-        ln -s <目标名> <链接名>
+脚本中会创建6个软连接：
+.spf13-vim-3中的: .vimrc .vimrc.local .vimrc.bundles 
+.guan-vim中的: .vimrc.local .vimrc.before.local .vimrc.bundles.local
+这6个文件，都在用户目录创建同名的软链接：
+ln -s <目标名> <链接名>
 
-    3. 终端配色
-    3.1 以设置终端软件的 solarized 配色。
-         - putty的设置：
-            文件已经下载到：`.guan-vim/tools/solarized/putty-colors-solarized/`
-            在windwos环境，双击目录下的solarized_dark.reg即完成配置。进入putty后选择名为Solarize的session。
-            详情查自带的文档：README.mkd
-         - ubuntu的terminal设置
+### 3. 终端配色
+#### 3.1 以设置终端软件的 solarized 配色。
+- putty的设置：
+    文件已经下载到：`.guan-vim/tools/solarized/putty-colors-solarized/`
+    在windwos环境，双击目录下的solarized_dark.reg即完成配置。进入putty后选择名为Solarize的session。
+    详情查自带的文档：README.mkd
+- ubuntu的terminal设置
 ```bash
     cd .vim/bundle/gnome-terminal-colors-solarized/
     ./set_dark.sh
 ```
-            详情查自带的文档：README.mkd
-         - 其它终端的设置，请查看https://github.com/altercation/solarized。
+详情查自带的文档：README.mkd
+- 其它终端的设置，请查看https://github.com/altercation/solarized。
 
-    3.2 设置目录的配色，这样ls的时候，字体不会模糊，配色更好看。
+#### 3.2 设置目录的配色，这样ls的时候，字体不会模糊，配色更好看。
 ```bash
     `cp ~/.vim/bundle/dircolors-solarized/dircolors.256dark ~/.dircolors`
     `eval 'dircolors .dircolors'
 ```
-    3.3 检测bash环境，是否支持256color
+#### 3.3 检测bash环境，是否支持256color
     ubuntu下`echo $xterm`检测，如果不支持，在.bashrc中添加：
 ```bash
     if [ "$TERM" == "xterm"  ]; then
@@ -48,21 +48,21 @@
     fi
 ```
 
-    4. 自动生产git仓库的tags: .guan-vim/tools/ctags_with_git, 里面有个简单的READ.md
-        加入到.bashrc:
+### 4. 自动生产git仓库的tags: .guan-vim/tools/ctags_with_git, 里面有个简单的READ.md
+安装文档设置完成后，加入到.bashrc:
 ```bash
         # impotant for git
         export LANGUAGE='en_US.UTF-8 git'
 ```
-    4. Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
+     Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
 
-    5. 如果你有网络，有管理员权限，安装自动补全插件 YouCompleteMe
+### 5. 如果你有网络，有管理员权限，安装自动补全插件 YouCompleteMe
 ```bash
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py --clang-completer
 ```
 
-    6. enjoy it!
+### 6. enjoy it!
 
 ## guan-vim 练级攻略(待完成）
  1. Level 1: 找回source insight的感觉
