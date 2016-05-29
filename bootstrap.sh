@@ -30,6 +30,8 @@ guan_app_name='guan-vim'
 [ -z "$GUAN_REPO_BRANCH" ] && GUAN_REPO_BRANCH='master'
 # 1: 没有网络
 no_network_mode='1'
+# 
+guanjianzhe='0'
 
 ############################  BASIC SETUP TOOLS
 msg() {
@@ -166,14 +168,18 @@ setup_fork_mode() {
         lnif "$source_path/.vimrc.before.fork"  "$target_path/.vimrc.before.fork"
 
         # put my bashrc, gitconfig and ctag with git here
-        touch "$target_path/.bashrc"
-        touch "$target_path/.bash_aliases"
-        touch "$target_path/.gitconfig"
+        if [ "$guanjianzhe" -eq '1' ]; then
+            touch "$target_path/.bashrc"
+            touch "$target_path/.bash_aliases"
+            touch "$target_path/.gitconfig"
+        fi
         touch "$target_path/.git_template"
 
-        lnif "$source_path/tools/bash_configs/.bashrc"          "$target_path/.bashrc"
+        # lnif "$source_path/tools/bash_configs/.bashrc"          "$target_path/.bashrc"
+        if [ "$guanjianzhe" -eq '1' ]; then
         lnif "$source_path/tools/bash_configs/.bash_aliases"    "$target_path/.bash_aliases"
         lnif "$source_path/tools/bash_configs/.gitconfig"       "$target_path/.gitconfig"
+        fi
         lnif "$source_path/tools/ctags_with_git/.git_template"  "$target_path/.git_template"
 
         ret="$?"
