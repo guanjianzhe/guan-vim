@@ -35,12 +35,18 @@ ln -s <目标名> <链接名>
 详情查自带的文档：README.mkd
 - 其它终端的设置，请查看https://github.com/altercation/solarized。
 
-#### 3.2 设置目录的配色，这样ls的时候，字体不会模糊，配色更好看。
+#### 3.2 powerline字体
+安装包含powerline字体，然后在终端软件中，选择你喜欢的含powerline字体。
+在.vim/bundle/fonts/
+中，下载了一些含powerline的字体。ubuntu下推荐ubuntu mono字体。
+windows上，可以自行搜索“<字体名> powerline"。
+
+#### 3.3 设置目录的配色，这样ls的时候，字体不会模糊，配色更好看。
 ```bash
     `cp ~/.vim/bundle/dircolors-solarized/dircolors.256dark ~/.dircolors`
     `eval 'dircolors .dircolors'
 ```
-#### 3.3 检测bash环境，是否支持256color
+#### 3.4 检测bash环境，是否支持256color
 ubuntu下`echo $xterm`检测，如果不支持，在.bashrc中添加：
 ```bash
     if [ "$TERM" == "xterm"  ]; then
@@ -85,13 +91,12 @@ Making this a separate script makes it easy to invoke .git/hooks/ctags for a one
 ## tmux配置
 颜色配置:
  - https://github.com/edkolev/tmuxline.vim
-:Tmuxline airline_insert
+`:Tmuxline airline_insert`
 
  - 如果.bash没有自动加载
-```
 http://stackoverflow.com/questions/9652126/bashrc-profile-is-not-loaded-on-new-tmux-session-or-window-why
 Yes, at the end of your .bash_profile, put the line:
-
+```
 . ~/.bashrc
 This automatically sources the rc file under those circumstances where it would normally only process the profile.
 ```
