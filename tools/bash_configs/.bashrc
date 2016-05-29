@@ -134,3 +134,6 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/workspace
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+
+#for server60 vim
+export PATH=~/tools/vim/bin:$PATH
