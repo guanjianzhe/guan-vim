@@ -55,7 +55,7 @@ ubuntu下`echo $xterm`检测，如果不支持，在.bashrc中添加：
     # impotant for git
     export LANGUAGE='en_US.UTF-8 git'
 ```
-    Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
+Making this a separate script makes it easy to invoke .git/hooks/ctags for a one-off re-index (or git config --global alias.ctags '!.git/hooks/ctags', then git ctags),
 
 ### 5. 如果你有网络，有管理员权限，安装自动补全插件 YouCompleteMe
 ```bash
