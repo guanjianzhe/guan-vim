@@ -98,15 +98,27 @@
         let current_time_second = strftime("%S")
         let current_time_second = 0
         if current_time_second % 8 == 0
-            "let g:solarized_termcolors=256
-            "let g:solarized_termtrans=1
-            let g:solarized_contrast="normal"
-            let g:solarized_visibility="normal"
-            "set nolist
-            " g:solarized_visibility =  "normal" (default)   "high" or "low"
-            " https://github.com/altercation/vim-colors-solarized/issues/5
-            let g:solarized_visibility= "low"
-            colorscheme solarized             " Load a colorscheme
+            if 1 == 0
+                set background=dark
+                set t_Co=256
+                let g:solarized_termcolors=256
+                let g:solarized_termtrans=1
+                let g:solarized_contrast="normal"
+                let g:solarized_visibility="normal"
+                color solarized  " Load a colorscheme"
+
+                colorscheme solarized
+            else
+                "let g:solarized_termcolors=256
+                "let g:solarized_termtrans=1
+                let g:solarized_contrast="normal"
+                let g:solarized_visibility="normal"
+                "set nolist
+                " g:solarized_visibility =  "normal" (default)   "high" or "low"
+                " https://github.com/altercation/vim-colors-solarized/issues/5
+                let g:solarized_visibility= "low"
+                colorscheme solarized             " Load a colorscheme
+            endif
             let g:airline_theme = 'solarized'
         elseif current_time_second % 8 == 1
             "colorscheme molokai
@@ -189,12 +201,19 @@
     "nnoremap / /\v
     "vnoremap / /\v
 
+    "" Keep search pattern at the center of the screen.
+    "nnoremap <silent> n nzz
+    "nnoremap <silent> N Nzz
+    "nnoremap <silent> * *zz
+    "nnoremap <silent> # #zz
+    "nnoremap <silent> g* g*zz
+
     " Keep search pattern at the center of the screen.
-    nnoremap <silent> n nzz
-    nnoremap <silent> N Nzz
-    nnoremap <silent> * *zz
-    nnoremap <silent> # #zz
-    nnoremap <silent> g* g*zz
+    nnoremap <silent> n ntz
+    nnoremap <silent> N Ntz
+    nnoremap <silent> * *tz
+    nnoremap <silent> # #tz
+    nnoremap <silent> g* g*tz
 
     " 去掉搜索高亮
     noremap <silent><leader>/ :nohls<CR>
@@ -269,6 +288,13 @@
     nnoremap <C-e> 2<C-e>
     nnoremap <C-y> 2<C-y>
 
+    " cursor position after pasting in vi / vim
+    "http://unix.stackexchange.com/questions/5056/cursor-position-after-pasting-in-vi-vim
+    noremap p gp
+    noremap p gp
+    noremap gP P
+    noremap gP P
+
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " F1 - F8 设置
     " F2 NERDTree开关
@@ -280,8 +306,8 @@
     "Paste toggle - when pasting something in, don't indent.
     "set pastetoggle=<F7>
     "you also can :set paste, :set paste!
-    " F6 粘贴开关，用于鼠标复制代码用
-    set pastetoggle=<F6>            "    when in insert mode, press <F10> to go to
+    " F5 粘贴开关，用于鼠标复制代码用
+    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
     " F3 为方便复制，用<F3>开启/关闭行号显示:
@@ -295,7 +321,7 @@
         "endif
         set number?
     endfunc
-    nnoremap <F5> :call HideNumber()<CR>
+    nnoremap <F6> :call HideNumber()<CR>
 
     function! ToggleMouse()
         if(&mouse == 'a')
@@ -517,10 +543,10 @@
         let g:airline#extensions#tabline#tab_nr_type = 1
         let g:airline#extensions#tabline#buffer_idx_mode = 1
         " configure separators for the tabline only.
-        let g:airline#extensions#tabline#left_sep = '|'
-        let g:airline#extensions#tabline#left_alt_sep = '|'
-        let g:airline#extensions#tabline#right_sep = '|'
-        let g:airline#extensions#tabline#right_alt_sep = '|'
+       " let g:airline#extensions#tabline#left_sep = '|'
+       " let g:airline#extensions#tabline#left_alt_sep = '|'
+       " let g:airline#extensions#tabline#right_sep = '|'
+       " let g:airline#extensions#tabline#right_alt_sep = '|'
         " set ttimeoutlen=50
         " 显示完整路径
         "let g:airline_section_b=airline#section#create(['%F'])
