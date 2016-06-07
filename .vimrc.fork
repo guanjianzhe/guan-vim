@@ -88,6 +88,11 @@
         "set background=dark
         set t_Co=256
 
+
+
+
+
+
     " This is for 50% possibility background
     if g:guan_colorscheme_switch == "second"
         let current_time_second = strftime("%S")
@@ -448,7 +453,7 @@
               let g:indent_guides_start_level = 2
               let g:indent_guides_guide_size = 1
               let g:indent_guides_tab_guides = 0
-              let g:indent_guides_enable_on_vim_startup = 1
+              let g:indent_guides_enable_on_vim_startup = 0
 
       "" indent
       "" <leader>ig to trigger
@@ -878,11 +883,11 @@
     autocmd! bufwritepost _vimrc source %
     " vimrc文件修改之后自动加载, linux
     autocmd! bufwritepost .vimrc source %
-    autocmd! bufwritepost .vimrc.local source %
+    autocmd! bufwritepost .vimrc.fork source %
     autocmd! bufwritepost .vimrc.before source %
-    autocmd! bufwritepost .vimrc.before.local source %
+    autocmd! bufwritepost .vimrc.before.fork source %
     autocmd! bufwritepost .vimrc.bundles source %
-    autocmd! bufwritepost .vimrc.bundles.local source %
+    autocmd! bufwritepost .vimrc.bundles.fork source %
     
     " TODO
     "autocmd! bufwritepost .vimrc.local source %
@@ -945,10 +950,10 @@
     "
     "" F1 - F6 设置
     "
-    "" F1 废弃这个键,防止调出系统帮助
-    "" I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
-    "noremap <F1> <Esc>"
-    "
+    " F1 废弃这个键,防止调出系统帮助
+    " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
+    noremap <F1> <Esc>"
+    
     "" F2 行号开关，用于鼠标复制代码用
     "" 为方便复制，用<F2>开启/关闭行号显示:
     "function! HideNumber()
@@ -996,22 +1001,22 @@
     "map <C-l> <C-W>l
     "
     "
-    "" http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
-    "" Zoom / Restore window.
-    "function! s:ZoomToggle() abort
-    "    if exists('t:zoomed') && t:zoomed
-    "        execute t:zoom_winrestcmd
-    "        let t:zoomed = 0
-    "    else
-    "        let t:zoom_winrestcmd = winrestcmd()
-    "        resize
-    "        vertical resize
-    "        let t:zoomed = 1
-    "    endif
-    "endfunction
-    "command! ZoomToggle call s:ZoomToggle()
-    "nnoremap <silent> <Leader>z :ZoomToggle<CR>
-    "
+    " http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
+    " Zoom / Restore window.
+    function! s:ZoomToggle() abort
+        if exists('t:zoomed') && t:zoomed
+            execute t:zoom_winrestcmd
+            let t:zoomed = 0
+        else
+            let t:zoom_winrestcmd = winrestcmd()
+            resize
+            vertical resize
+            let t:zoomed = 1
+        endif
+    endfunction
+    command! ZoomToggle call s:ZoomToggle()
+    nnoremap <silent> <Leader>z :ZoomToggle<CR>
+    
     "
     "" Go to home and end using capitalized directions
     "noremap H ^
