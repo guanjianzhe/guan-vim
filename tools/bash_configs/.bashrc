@@ -137,3 +137,9 @@ export PATH=$PATH:$GOBIN
 
 #for server60 vim
 export PATH=~/tools/vim/bin:$PATH
+
+# for ds-5
+export PATH=$PATH:/usr/local/DS-5_v5.24.0/bin
+
+export PATH=$PATH:/usr/local/DS-5_v5.24.0/sw/FLEXnet_11.13.1.2/redhat-enterprise-64bit
+export PATH=$PATH:/usr/local/license/

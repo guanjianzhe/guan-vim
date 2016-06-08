@@ -69,6 +69,7 @@
                 " TODO customize it to guanjianzhe/.tmux
                 "Bundle 'gpakosz/.tmux'
                 "Bundle 'guanjianzhe/.tmux'
+                Bundle 'tpope/vim-obsession'
                 "Bundle 'wklken/k-tmux'
             "endif
             "Bundle 'altercation/solarized'

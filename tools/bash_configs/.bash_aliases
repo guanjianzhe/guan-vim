@@ -17,6 +17,7 @@
 
 # 常用目录
 alias cdbiji='cd ~/KuaiPan/全志工作/笔记'
+alias biji='cd ~/KuaiPan/全志工作/笔记 && vi -S biji.vim'
 alias cd27l4='cd /home/guanjianzhe/servers/27server/gerrit/lichee/linux-3.4'
 alias cdl10='cd ~/workspace/linux-3.10/'
 alias cd106a64='cd ~/servers/106server/workspace/autotest/test/smoke/a64'
@@ -44,6 +45,7 @@ alias grepi='grep -Irns'
 
 alias livesuit='sudo /home/guanjianzhe/Bin/LiveSuit/LiveSuit.sh'
 alias enwlan='sudo /home/guanjianzhe/tools/enable_wlan0.sh'
+alias gtmux='tmux attach -t guan || tmux new -s guan'
 
 alias xrl='xrandr --output DVI-D-1 --auto --output HDMI-1 --off'
 alias xrr='xrandr --output DVI-D-1 --off --output HDMI-1 --auto'
