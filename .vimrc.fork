@@ -570,20 +570,24 @@
     "}
 
    " NerdTree {
-       if isdirectory(expand("~/.vim/bundle/nerdtree"))
-           "map <C-e> <plug>NERDTreeTabsToggle<CR>
-           map <leader>nt  <plug>NERDTreeTabsToggle<CR>
-           "map <leader>ne :NERDTreeFind<CR>
-           nmap <leader>nf :NERDTreeFind<CR>
+        if isdirectory(expand("~/.vim/bundle/vim-nerdtree-tabs"))
+            let g:nerdtree_tabs_open_on_new_tab = 1
+            let g:nerdtree_tabs_open_on_console_startup = 1
+        endif
+        if isdirectory(expand("~/.vim/bundle/nerdtree"))
+            "map <C-e> <plug>NERDTreeTabsToggle<CR>
+            map <leader>nt  <plug>NERDTreeTabsToggle<CR>
+            "map <leader>ne :NERDTreeFind<CR>
+            nmap <leader>nf :NERDTreeFind<CR>
 
-           let NERDTreeShowBookmarks=1
-           let NERDTreeIgnore=['builtin', 'out', 'tags', '\.cmd$', '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.o$']
-           let NERDTreeChDirMode=0
-           let NERDTreeQuitOnOpen=1
-           let NERDTreeMouseMode=2
-           let NERDTreeShowHidden=1
-           let NERDTreeKeepTreeInNewTab=1
-           let g:nerdtree_tabs_open_on_gui_startup=0
+            let NERDTreeShowBookmarks=1
+            let NERDTreeIgnore=['builtin', 'out', 'tags', '\.cmd$', '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.o$']
+            let NERDTreeChDirMode=0
+            let NERDTreeQuitOnOpen=0
+            let NERDTreeMouseMode=2
+            let NERDTreeShowHidden=1
+            let NERDTreeKeepTreeInNewTab=1
+            let g:nerdtree_tabs_open_on_gui_startup=0
         endif
     "}
 
@@ -634,7 +638,11 @@
         endif
     
         " 直接触发自动补全 insert模式下
-        " let g:ycm_key_invoke_completion = '<C-Space>'
+        let g:ycm_key_invoke_completion = '<c-y>'
+        "let g:ycm_key_invoke_completion = '<F9>'
+        " 设置转到定义处的快捷键，这个功能非常赞
+        nmap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
+
         " 黑名单,不启用
         let g:ycm_filetype_blacklist = {
             \ 'tagbar' : 1,

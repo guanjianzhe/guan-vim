@@ -143,3 +143,7 @@ export PATH=$PATH:/usr/local/DS-5_v5.24.0/bin
 
 export PATH=$PATH:/usr/local/DS-5_v5.24.0/sw/FLEXnet_11.13.1.2/redhat-enterprise-64bit
 export PATH=$PATH:/usr/local/license/
+
+#export PATH=$PATH:~/.gaun-vim/tools/bash_configs
+#. ~/.guan-vim/tools/bash_configs/acd_func.sh
+source ~/.bashrc.user

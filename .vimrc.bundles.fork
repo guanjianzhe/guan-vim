@@ -73,6 +73,7 @@
                 "Bundle 'wklken/k-tmux'
             "endif
             "Bundle 'altercation/solarized'
+            Bundle 'rdnetto/YCM-Generator'
             "----- end of guan customize
 
 "            " Pick one of the checksyntax, jslint, or syntastic
