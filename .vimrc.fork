@@ -394,6 +394,7 @@
             "nnoremap <silent> <leader>tt :TagbarToggle<CR>
             nnoremap <F4> :TagbarToggle<CR>
             let g:tagbar_width = 35
+            "autocmd BufEnter * nested :call tagbar#autoopen(0)
         endif
     " }
     
@@ -587,7 +588,7 @@
             let NERDTreeMouseMode=2
             let NERDTreeShowHidden=1
             let NERDTreeKeepTreeInNewTab=1
-            let g:nerdtree_tabs_open_on_gui_startup=0
+            let g:nerdtree_tabs_open_on_console_startup = 0
         endif
     "}
 
