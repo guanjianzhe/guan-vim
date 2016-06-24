@@ -184,12 +184,12 @@
     " Some helpers to edit mode
     " http://vimcasts.org/e/14
     cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
-    map <leader>ew :e %%
-    map <leader>es :sp %%
-    map <leader>ev :vsp %%
-    "map <leader>et :tabe %%
-    map <leader>er :tabe ~/
-    map <leader>et :tab sp<cr>
+    "map <leader>ew :e %%
+    "map <leader>es :sp %%
+    "map <leader>ev :vsp %%
+    ""map <leader>et :tabe %%
+    "map <leader>er :tabe ~/
+    "map <leader>et :tab sp<cr>
 
     map <leader>vr :vertical res 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -394,6 +394,8 @@
             "nnoremap <silent> <leader>tt :TagbarToggle<CR>
             nnoremap <F3> :TagbarToggle<CR>
             let g:tagbar_width = 35
+            " sorted according to order in the source file.
+            let g:tagbar_sort = 0
             "autocmd BufEnter * nested :call tagbar#autoopen(0)
         endif
     " }
@@ -442,8 +444,8 @@
             nmap <Leader>L <Plug>(easymotion-overwin-line)
         "
         "   " Move to word
-            map  <Leader>ew <Plug>(easymotion-bd-w)
-            nmap <Leader>ew <Plug>(easymotion-overwin-w)
+        "    map  <Leader>ew <Plug>(easymotion-bd-w)
+        "    nmap <Leader>ew <Plug>(easymotion-overwin-w)
     " }
 
     " cscope.vim(brookhong) {
