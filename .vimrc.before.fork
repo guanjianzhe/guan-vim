@@ -1,15 +1,21 @@
+    " The following two lines conflict with moving to top and
+    " bottom of the screen
+    " If you prefer that functionality, add the following to your
+    " .vimrc.before.local file:
+       let g:spf13_no_fastTabs = 1
+
     " Most prefer to automatically switch to the current file directory when
     " a new buffer is opened; to prevent this behavior, add the following to
     " your .vimrc.before.local file:
        let g:spf13_no_autochdir = 1
 
-"    if !exists('g:spf13_bundle_groups')
-"        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
-"    endif
-
-"        elseif count(g:spf13_bundle_groups, 'youcompleteme')
-"        elseif count(g:spf13_bundle_groups, 'neocomplcache')
-"        elseif count(g:spf13_bundle_groups, 'neocomplete')
+    "    if !exists('g:spf13_bundle_groups')
+    "        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+    "    endif
+    
+    "        elseif count(g:spf13_bundle_groups, 'youcompleteme')
+    "        elseif count(g:spf13_bundle_groups, 'neocomplcache')
+    "        elseif count(g:spf13_bundle_groups, 'neocomplete')
 
 let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'python',]
 
@@ -18,11 +24,11 @@ let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'p
        let g:override_spf13_bundles = 1
 
 
-" The default mappings for editing and applying the spf13 configuration
-" are <leader>ev and <leader>sv respectively. Change them to your preference
-" by adding the following to your .vimrc.before.local file:
-   let g:spf13_edit_config_mapping='<leader>ec'
-   let g:spf13_apply_config_mapping='<leader>sc'
+    " The default mappings for editing and applying the spf13 configuration
+    " are <leader>ev and <leader>sv respectively. Change them to your preference
+    " by adding the following to your .vimrc.before.local file:
+       let g:spf13_edit_config_mapping='<leader>ec'
+       let g:spf13_apply_config_mapping='<leader>sc'
 
     " End/Start of line motion keys act relative to row/wrap width in the
     " presence of `:set wrap`, and relative to line for `:set nowrap`.

@@ -275,7 +275,7 @@
     "inoremap <C-t>     <Esc>:tabnew<CR>
     "
     nnoremap <C-n>     :tab sp<CR>
-    inoremap <C-n>     :tab sp<CR>
+    "inoremap <C-n>     :tab sp<CR>
 
     " 命令行模式增强，ctrl - a到行首， -e 到行尾
     cnoremap <C-j> <t_kd>
@@ -307,7 +307,7 @@
     "set pastetoggle=<F7>
     "you also can :set paste, :set paste!
     " F5 粘贴开关，用于鼠标复制代码用
-    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
+    set pastetoggle=<F4>            "    when in insert mode, press <F10> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
     " F3 为方便复制，用<F3>开启/关闭行号显示:
@@ -337,7 +337,7 @@
     " F7 显示可打印字符开关
     nnoremap <F8> :set list! list?<CR>
     " F6 换行开关
-    nnoremap <F7> :set wrap! wrap?<CR>
+    nnoremap <F5> :set wrap! wrap?<CR>
     
     "" F7 语法开关，关闭语法可以加快大文件的展示
     "function! ToggleSyntax()
@@ -392,7 +392,7 @@
     " TagBar {
         if isdirectory(expand("~/.vim/bundle/tagbar/"))
             "nnoremap <silent> <leader>tt :TagbarToggle<CR>
-            nnoremap <F4> :TagbarToggle<CR>
+            nnoremap <F3> :TagbarToggle<CR>
             let g:tagbar_width = 35
             "autocmd BufEnter * nested :call tagbar#autoopen(0)
         endif
@@ -497,7 +497,8 @@
 
         if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
             map <leader>ru :CtrlPMRU<CR>
-            nnoremap <F3> :CtrlPMRU<CR>
+            map <leader>; :CtrlPMRU<CR>
+            "nnoremap <F3> :CtrlPMRU<CR>
             "let g:ctrlp_prompt_mappings = { 'ToggleMRURelative()': ['<F2>'] }
         endif
 

@@ -16,8 +16,8 @@
 #alias cd18server='cd ~/servers/18server'
 
 # 常用目录
-alias cdbiji='cd ~/KuaiPan/全志工作/笔记'
-alias biji='cd ~/KuaiPan/全志工作/笔记 && vi -S biji.vim'
+alias cdbiji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记'
+alias biji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记 && vi -S biji.vim'
 alias cd27l4='cd /home/guanjianzhe/servers/27server/gerrit/lichee/linux-3.4'
 alias cdl10='cd ~/workspace/linux-3.10/'
 alias cd106a64='cd ~/servers/106server/workspace/autotest/test/smoke/a64'
@@ -42,8 +42,11 @@ alias ssh27='ssh guanjianzhe@192.168.200.27'
 alias ssh106='ssh pd1@192.168.200.106'
 alias h=history
 alias grepi='grep -Irns'
+## 打开historian
+alias battery_historian='cd ~/workspace/src/github.com/google/battery-historian/ && go run cmd/battery-historian/battery-historian.go &'
 
-alias livesuit='sudo /home/guanjianzhe/Bin/LiveSuit/LiveSuit.sh'
+
+alias livesuit='sudo /home/guanjianzhe/Bin/LiveSuit/LiveSuit.sh > /dev/null 2>&1'
 alias enwlan='sudo /home/guanjianzhe/tools/enable_wlan0.sh'
 alias gtmux='tmux attach -t guan || tmux new -s guan'
 
