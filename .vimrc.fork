@@ -296,18 +296,32 @@
     noremap gP P
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    function! PrintFn()
+        echo "F1:"
+        echo "F2: NERDTreeToggle\t"
+        echo "F3: TagbarToggle"
+        echo "F4: HideNumber()"
+
+        echo "F5: pastetoggle"
+        echo "F6: wrap!"
+        echo "F7: list! Toggle"
+        echo "F8: ToggleSyntax"
+        echo "F9: ToggleMouse()"
+    endfunc
+    nnoremap <F12> :call PrintFn()<CR>
+
     " F1 - F8 设置
     " F2 NERDTree开关
     nnoremap <F2> :NERDTreeToggle<CR>
     " F1 废弃这个键,防止调出系统帮助
     " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
-    "noremap <F1> <Esc>"
+    noremap <F1> <Esc>"
 
     "Paste toggle - when pasting something in, don't indent.
     "set pastetoggle=<F7>
     "you also can :set paste, :set paste!
     " F5 粘贴开关，用于鼠标复制代码用
-    set pastetoggle=<F4>            "    when in insert mode, press <F10> to go to
+    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
     " F3 为方便复制，用<F3>开启/关闭行号显示:
@@ -315,13 +329,13 @@
         "if(&relativenumber == &number)
         "    set relativenumber! number!
         "elseif(&number)
-            set number!
+        set number!
         "else
         "    set relativenumber!
         "endif
         set number?
     endfunc
-    nnoremap <F6> :call HideNumber()<CR>
+    nnoremap <F4> :call HideNumber()<CR>
 
     function! ToggleMouse()
         if(&mouse == 'a')
@@ -334,10 +348,10 @@
     endfunc
     nnoremap <F9> :call ToggleMouse()<CR>
 
-    " F7 显示可打印字符开关
-    nnoremap <F8> :set list! list?<CR>
+    " F8 显示可打印字符开关
+    nnoremap <F7> :set list! list?<CR>
     " F6 换行开关
-    nnoremap <F5> :set wrap! wrap?<CR>
+    nnoremap <F6> :set wrap! wrap?<CR>
     
     "" F7 语法开关，关闭语法可以加快大文件的展示
     "function! ToggleSyntax()
@@ -347,7 +361,7 @@
     "    "endif    <CR> :RainbowToggle
     "    set number?
     "endfunc
-    nnoremap <F10> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+    nnoremap <F8> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
     " disbale paste mode when leaving insert mode
     au InsertLeave * set nopaste
