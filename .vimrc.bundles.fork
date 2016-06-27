@@ -89,6 +89,7 @@
                 Bundle 'majutsushi/tagbar'
             endif
             Bundle 'dyng/ctrlsf.vim'
+            Bundle 'kshenoy/vim-signature'
         endif
     " }
 
