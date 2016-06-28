@@ -165,10 +165,10 @@
 " }
 
 " Formatting {
-
     " 设置环绕换行
     set wrap
 
+    "set noexpandtab     " Tabs are STILL tabs, not spaces
 " }
 
 " Key_(re)Mappings {
@@ -303,10 +303,11 @@
         echo "F4: HideNumber()"
 
         echo "F5: pastetoggle"
-        echo "F6: wrap!"
+        echo "F6: wrap! Toggle"
         echo "F7: list! Toggle"
-        echo "F8: ToggleSyntax"
-        echo "F9: ToggleMouse()"
+        echo "F8: expandtab! Toggle<CR>"
+        echo "F9: ToggleSyntax"
+        echo "F10: ToggleMouse()"
     endfunc
     nnoremap <F12> :call PrintFn()<CR>
 
@@ -317,13 +318,6 @@
     " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
     noremap <F1> <Esc>"
 
-    "Paste toggle - when pasting something in, don't indent.
-    "set pastetoggle=<F7>
-    "you also can :set paste, :set paste!
-    " F5 粘贴开关，用于鼠标复制代码用
-    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
-                                    "    paste mode, where you can paste mass data
-                                    "    that won't be autoindented
     " F3 为方便复制，用<F3>开启/关闭行号显示:
     function! HideNumber()
         "if(&relativenumber == &number)
@@ -337,21 +331,19 @@
     endfunc
     nnoremap <F4> :call HideNumber()<CR>
 
-    function! ToggleMouse()
-        if(&mouse == 'a')
-            set mouse=
-            echo "Mouse usage \"Disabled\""
-        else
-            set mouse=a
-            echo "Mouse usage \"Enabled\""
-        endif
-    endfunc
-    nnoremap <F9> :call ToggleMouse()<CR>
+    "Paste toggle - when pasting something in, don't indent.
+    "set pastetoggle=<F5>
+    "you also can :set paste, :set paste!
+    " F5 粘贴开关，用于鼠标复制代码用
+    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
+                                    "    paste mode, where you can paste mass data
+                                    "    that won't be autoindented
 
     " F8 显示可打印字符开关
     nnoremap <F7> :set list! list?<CR>
     " F6 换行开关
     nnoremap <F6> :set wrap! wrap?<CR>
+    nnoremap <F8> :set expandtab! expandtab?<CR>    " Tabs are tabs, or spaces.
     
     "" F7 语法开关，关闭语法可以加快大文件的展示
     "function! ToggleSyntax()
@@ -361,7 +353,18 @@
     "    "endif    <CR> :RainbowToggle
     "    set number?
     "endfunc
-    nnoremap <F8> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+    nnoremap <F9> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+
+    function! ToggleMouse()
+        if(&mouse == 'a')
+            set mouse=
+            echo "Mouse usage \"Disabled\""
+        else
+            set mouse=a
+            echo "Mouse usage \"Enabled\""
+        endif
+    endfunc
+    nnoremap <F10> :call ToggleMouse()<CR>
 
     " disbale paste mode when leaving insert mode
     au InsertLeave * set nopaste
@@ -1237,9 +1240,10 @@
     "" FileType Settings  文件类型设置
     ""==========================================
     "
-    "" 具体编辑文件类型的一般设置，比如不要 tab 等
+    " 具体编辑文件类型的一般设置，比如不要 tab 等
     "autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
     "autocmd FileType ruby,javascript,html,css,xml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+    autocmd FileType c,h set noexpandtab
     "autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd
     "autocmd BufRead,BufNewFile *.part set filetype=html
     "" disable showmatch when use > in php

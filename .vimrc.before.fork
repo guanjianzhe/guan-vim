@@ -1,4 +1,11 @@
 
+" Formatting {
+    " Remove trailing whitespaces and ^M chars
+    " To disable the stripping of whitespace, add the following to your
+    " .vimrc.before.local file:
+       let g:spf13_keep_trailing_whitespace = 1
+" }
+
 " Key (re)Mappings {
 
     " The following two lines conflict with moving to top and
@@ -59,12 +66,12 @@ let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'p
     " The lines conflict with the default digraph mapping of <C-K>
     " If you prefer that functionality, add the following to your
     " .vimrc.before.local file:
-       let g:spf13_no_easyWindows = 1
+    "   let g:spf13_no_easyWindows = 1
     "if !exists('g:spf13_no_easyWindows')
-        map <C-J> <C-W>j
-        map <C-K> <C-W>k
-        map <C-L> <C-W>l
-        map <C-H> <C-W>h
+    "    map <C-J> <C-W>j
+    "    map <C-K> <C-W>k
+    "    map <C-L> <C-W>l
+    "    map <C-H> <C-W>h
     "endif
 
 " }
