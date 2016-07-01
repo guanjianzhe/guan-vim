@@ -28,7 +28,7 @@ alias cd60workspace='cd ~/servers/60server/workspace'
 alias mount18='sudo mount //192.168.200.18/Documents         ~/servers/18server/        -o username=guanjianzhe,password=guan@2016,dir_mode=0777,file_mode=0777,uid=1000,gid=1000'
 
 #编译服务器
-alias mount60='sudo mount -t cifs -o username=guanjianzhe,password=guan@2016,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.60/guanjianzhe/ ~/servers/60server/'
+alias mount60='sudo mount -t cifs -o username=guanjianzhe,password=guan_2016,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.60/guanjianzhe/ ~/servers/60server/'
 alias mount27='sudo mount -t cifs -o username=guanjianzhe,password=guan@2015,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.27/guanjianzhe/ ~/servers/27server/'
 alias mount106='sudo mount -t cifs -o username=pd1,password=password,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.106/pd1/ ~/servers/106server/'
 alias mounttempForWork='sudo mount -t cifs -o username=csjamesdeng,password=pd123456,rw,uid=guanjianzhe,gid=guanjianzhe //192.168.200.60/csjamesdeng/ ~/servers/tempForWork/'
