@@ -151,3 +151,6 @@ source ~/.bashrc.user
 
 # for cmd markdown, android st
 export PATH=$PATH:/usr/local/cmd_markdown_linux64:/usr/local/android-studio/bin
+
+# for android studio
+export PATH=$PATH:/home/guanjianzhe/bin/android-studio/bin

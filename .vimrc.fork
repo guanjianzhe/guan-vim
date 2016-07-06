@@ -10,7 +10,7 @@
 "   \______|  \______/  /__/     \__\ |__| \__|          \__/     |__| |__|  |__|
 "
 "
-"   You can find me 
+"   You can find me
 "
 "   Copyright 2016 guanjianzhe
 "
@@ -32,7 +32,7 @@
     "set cursorcolumn
     " 突出显示当前行
     set cursorline
-    
+
     " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
     " 好处：误删什么的，如果以前屏幕打开，可以找回
     set t_ti= t_te=
@@ -181,7 +181,7 @@
     "map <leader>er :tabe ~/
     "map <leader>et :tab sp<cr>
 
-    map <leader>vr :vertical res 
+    map <leader>vr :vertical res
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     " 搜索相关
@@ -952,10 +952,10 @@
     autocmd! bufwritepost .vimrc.before.fork source %
     autocmd! bufwritepost .vimrc.bundles source %
     autocmd! bufwritepost .vimrc.bundles.fork source %
-    
+
     " TODO
     "autocmd! bufwritepost .vimrc.local source %
-    
+
     "" 自动补全配置
     "" 让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
     "set completeopt=longest,menu
@@ -1080,7 +1080,7 @@
     endfunction
     command! ZoomToggle call s:ZoomToggle()
     nnoremap <silent> <Leader>z :ZoomToggle<CR>
-    
+
     "
     "" Go to home and end using capitalized directions
     "noremap H ^
