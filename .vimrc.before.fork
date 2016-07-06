@@ -1,3 +1,149 @@
+" Modeline_and_Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+"
+"    _______  __    __       ___      .__   __.      ____    ____  __  .___  ___.
+"   /  _____||  |  |  |     /   \     |  \ |  |      \   \  /   / |  | |   \/   |
+"  |  |  __  |  |  |  |    /  ^  \    |   \|  |  _____\   \/   /  |  | |  \  /  |
+"  |  | |_ | |  |  |  |   /  /_\  \   |  . `  | |______\      /   |  | |  |\/|  |
+"  |  |__| | |  `--'  |  /  _____  \  |  |\   |         \    /    |  | |  |  |  |
+"   \______|  \______/  /__/     \__\ |__| \__|          \__/     |__| |__|  |__|
+"
+"
+"   You can find me 
+"
+"   Copyright 2016 guanjianzhe
+"
+" Modeline_and_Notes
+" [X] Environment
+" General
+" Vim_UI
+" Formatting
+" Key_(re)Mappings
+" Plugins .
+" k_vim .
+"
+" }
+
+" { guan-vim options
+    " when using oters terminal, add the following to your .vimrc.before.local
+    " file:
+    "let g:guan_oters_terminal = 1
+
+    if !exists('g:guan_theme')
+        " theme choose:
+        "let g:guan_theme  = 'solarized'
+        "let g:guan_theme  = 'molokai_dark'
+        "let g:guan_theme  = 'tomorrow'
+        "let g:guan_theme  = 'hybrid'
+        "let g:guan_theme  = 'lucius'
+        "let g:guan_theme  = 'jellybeans'
+        "let g:guan_theme  = 'kolor'
+        "let g:guan_theme  = 'zenburn'
+    endif
+
+    if exists('g:guan_oters_terminal')
+        let g:guan_theme = 'molokai_dark'
+    endif
+    "echo g:guan_theme
+" }
+
+" To override all the included bundles, add the following to your
+" .vimrc.bundles.local file:
+    let g:override_spf13_bundles = 1
+
+"    if !exists('g:spf13_bundle_groups')
+"        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+"    endif
+"        elseif count(g:spf13_bundle_groups, 'youcompleteme')
+"        elseif count(g:spf13_bundle_groups, 'neocomplcache')
+"        elseif count(g:spf13_bundle_groups, 'neocomplete')
+let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'python',]
+
+" To override all the included bundles, add the following to your
+" .vimrc.bundles.local file:
+    let g:override_spf13_bundles = 1
+
+" spf13 options {
+
+    " Prevent automatically changing to open file directory
+       let g:spf13_no_autochdir = 1
+
+    " Disable views
+    "   let g:spf13_no_views = 1
+
+    " Leader keys
+    "   let g:spf13_leader='\'
+    "   let g:spf13_localleader='_'
+
+    " Disable easier moving in tabs and windows
+    "   let g:spf13_no_easyWindows = 1
+
+    " Disable wrap relative motion for start/end line motions
+    "   let g:spf13_no_wrapRelMotion = 1
+
+    " Disable fast tab navigation
+       let g:spf13_no_fastTabs = 1
+
+    " Clear search highlighting
+    "   let g:spf13_clear_search_highlight = 1
+
+    " Disable neosnippet expansion
+    " This maps over <C-k> and does some Supertab
+    " emulation with snippets
+    "   let g:spf13_no_neosnippet_expand = 1
+
+    " Disable whitespace stripping
+       let g:spf13_keep_trailing_whitespace = 1
+
+    " Enable powerline symbols
+       if !exists('g:guan_oters_terminal')
+           let g:airline_powerline_fonts = 1
+       endif
+
+    " vim files directory
+    "   let g:spf13_consolidated_directory = <full path to desired directory>
+    "   eg: let g:spf13_consolidated_directory = $HOME . '/.vim/'
+
+    " This makes the completion popup strictly passive.
+    " Keypresses acts normally. <ESC> takes you of insert mode, words don't
+    " automatically complete, pressing <CR> inserts a newline, etc. Iff the
+    " menu is open, tab will cycle through it. If a snippet is selected, <C-k>
+    " expands it and jumps between fields.
+    "   let g:spf13_noninvasive_completion = 1
+
+    " Don't turn conceallevel or concealcursor
+    "   let g:spf13_no_conceal = 1
+
+    " For some colorschemes, autocolor will not work (eg: 'desert', 'ir_black')
+    " Indent guides will attempt to set your colors smartly. If you
+    " want to control them yourself, do it here.
+    "   let g:indent_guides_auto_colors = 0
+    "   autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212121 ctermbg=233
+    "   autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#404040 ctermbg=234
+
+    " Leave the default font and size in GVim
+    " To set your own font, do it from ~/.vimrc.local
+    "   let g:spf13_no_big_font = 1
+
+    " Disable  omni complete
+    "   let g:spf13_no_omni_complete = 1
+
+    " Don't create default mappings for multicursors
+    " See :help multiple-cursors-mappings
+    "   let g:multi_cursor_use_default_mapping=0
+    "   let g:multi_cursor_next_key='<C-n>'
+    "   let g:multi_cursor_prev_key='<C-p>'
+    "   let g:multi_cursor_skip_key='<C-x>'
+    "   let g:multi_cursor_quit_key='<Esc>'
+    " Require a special keypress to enter multiple cursors mode
+    "   let g:multi_cursor_start_key='+'
+
+    " Mappings for editing/applying spf13 config
+       let g:spf13_edit_config_mapping='<leader>ev'
+       let g:spf13_apply_config_mapping='<leader>sv'
+    
+" }
 
 " Formatting {
     " Remove trailing whitespaces and ^M chars
@@ -19,21 +165,6 @@
     " your .vimrc.before.local file:
        let g:spf13_no_autochdir = 1
 
-    "    if !exists('g:spf13_bundle_groups')
-    "        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
-    "    endif
-    
-    "        elseif count(g:spf13_bundle_groups, 'youcompleteme')
-    "        elseif count(g:spf13_bundle_groups, 'neocomplcache')
-    "        elseif count(g:spf13_bundle_groups, 'neocomplete')
-
-let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'python',]
-
-    " To override all the included bundles, add the following to your
-    " .vimrc.bundles.local file:
-       let g:override_spf13_bundles = 1
-
-
     " The default mappings for editing and applying the spf13 configuration
     " are <leader>ev and <leader>sv respectively. Change them to your preference
     " by adding the following to your .vimrc.before.local file:
@@ -52,7 +183,9 @@ let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'p
         " Use the powerline theme and optionally enable powerline symbols.
         " To use the symbols , , , , , , and .in the statusline
         " segments add the following to your .vimrc.before.local file:
-           let g:airline_powerline_fonts=1
+        if !exists('g:guan_oters_terminal')
+            let g:airline_powerline_fonts = 1
+        endif
         " If the previous symbols do not render for you then install a
         " powerline enabled font.
 

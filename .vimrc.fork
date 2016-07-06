@@ -74,7 +74,6 @@
 
     " 主题
     let g:guan_background_switch = "dark" "hour, second, light, dark, daynight
-    let g:guan_colorscheme_switch = "second" "hour, second, daynight, week
 
     if g:guan_background_switch == "light"
         set background=light
@@ -87,17 +86,9 @@
         "set background=light         " Assume a dark background
         "set background=dark
         set t_Co=256
-
-
-
-
-
-
     " This is for 50% possibility background
-    if g:guan_colorscheme_switch == "second"
-        let current_time_second = strftime("%S")
-        let current_time_second = 0
-        if current_time_second % 8 == 0
+        "let g:guan_theme = "solarized"
+        if g:guan_theme  == "solarized"
             if 1 == 0
                 set background=dark
                 set t_Co=256
@@ -120,35 +111,34 @@
                 colorscheme solarized             " Load a colorscheme
             endif
             let g:airline_theme = 'solarized'
-        elseif current_time_second % 8 == 1
+        elseif g:guan_theme  == 'molokai_dark'
             "colorscheme molokai
             colorscheme molokai_dark
             let g:airline_theme = 'molokai'
-        elseif current_time_second % 8 == 2
+        elseif g:guan_theme  == 'tomorrow'
             "Tomrrow-Night hybrid zenburn
             colorscheme Tomorrow-Night
             let g:airline_theme = 'tomorrow'
-        elseif current_time_second % 8 == 3
+        elseif g:guan_theme == 'hybrid'
             "set background=light         " Assume a dark background
             colorscheme hybrid
             let g:airline_theme = 'hybrid'
-        elseif current_time_second % 8 == 4
+        elseif g:guan_theme == 'lucius'
             "set background=light         " Assume a dark background
             colorscheme lucius
             let g:airline_theme = 'lucius'
-        elseif current_time_second % 8 == 5
+        elseif g:guan_theme == 'jellybeans'
             " jellybeans lucius
             colorscheme jellybeans
             let g:airline_theme = 'jellybeans'
-        elseif current_time_second % 8 == 6
+        elseif g:guan_theme == 'kolor'
             colorschem kolor
             let g:airline_theme = 'kolor'
-        elseif current_time_second % 8 == 7
+        elseif g:guan_theme == 'zenburn'
             "set background=light         " Assume a dark background
             colorscheme zenburn
             let g:airline_theme = 'zenburn'
         endif
-    endif
 
         " hemisu ;looks good but no airline theme
             "colorscheme gruvbox  looks good but no airline theme
@@ -223,12 +213,15 @@
     " 切换前后buffer
     nnoremap [b :bprevious<cr>
     nnoremap ]b :bnext<cr>
-    " 使用方向键切换buffer
-    noremap <left> :bp<CR>
-    noremap <right> :bn<CR>
-    " 使用方向键切换c
-    noremap <up> :lprevious<CR>
-    noremap <down> :lnext<CR>
+
+    if !exists('g:guan_oters_terminal')
+        " 使用方向键切换buffer
+        noremap <left> :cp<CR>
+        noremap <right> :cn<CR>
+        " 使用方向键切换c
+        noremap <up> :lprevious<CR>
+        noremap <down> :lnext<CR>
+    endif
 
     " tab 操作
     " http://vim.wikia.com/wiki/Alternative_tab_navigation
@@ -300,11 +293,11 @@
         echo "F1:"
         echo "F2: NERDTreeToggle\t"
         echo "F3: TagbarToggle"
-        echo "F4: HideNumber()"
+        echo "F5: HideNumber()"
 
-        echo "F5: pastetoggle"
-        echo "F6: wrap! Toggle"
-        echo "F7: list! Toggle"
+        echo "F4: pastetoggle"
+        echo "F7: wrap! Toggle"
+        echo "F6: list! Toggle"
         echo "F8: expandtab! Toggle<CR>"
         echo "F9: ToggleSyntax"
         echo "F10: ToggleMouse()"
@@ -329,22 +322,22 @@
         "endif
         set number?
     endfunc
-    nnoremap <F4> :call HideNumber()<CR>
+    nnoremap <F5> :call HideNumber()<CR>
 
     "Paste toggle - when pasting something in, don't indent.
     "set pastetoggle=<F5>
     "you also can :set paste, :set paste!
     " F5 粘贴开关，用于鼠标复制代码用
-    set pastetoggle=<F5>            "    when in insert mode, press <F10> to go to
+    set pastetoggle=<F4>            "    when in insert mode, press <F10> to go to
                                     "    paste mode, where you can paste mass data
                                     "    that won't be autoindented
 
     " F8 显示可打印字符开关
-    nnoremap <F7> :set list! list?<CR>
+    nnoremap <F6> :set list! list?<CR>
     " F6 换行开关
-    nnoremap <F6> :set wrap! wrap?<CR>
+    nnoremap <F7> :set wrap! wrap?<CR>
     nnoremap <F8> :set expandtab! expandtab?<CR>    " Tabs are tabs, or spaces.
-    
+
     "" F7 语法开关，关闭语法可以加快大文件的展示
     "function! ToggleSyntax()
     "    "if(&relativenumber == &number)
@@ -527,18 +520,21 @@
         " let g:airline_powerline_fonts = 1
         " " take care don't change it later
         " "set t_Co=256
-        " " symbols
-        " if !exists('g:airline_symbols')
-        "     let g:airline_symbols = {}
-        " endif
-        " "let g:airline_symbols.space = "\ua0"
-        " let g:airline_left_sep = '▶'
-        " let g:airline_left_alt_sep = '❯'
-        " let g:airline_right_sep = '◀'
-        " let g:airline_right_alt_sep = '❮'
-        " let g:airline_symbols.linenr = '¶'
-        " "let g:airline_symbols.branch = '-b'
-        " let g:airline_symbols.branch = '⎇'
+
+         " symbols
+        if exists('g:guan_oters_terminal')
+            if !exists('g:airline_symbols')
+                let g:airline_symbols = {}
+            endif
+            ""let g:airline_symbols.space = "\ua0"
+            "let g:airline_left_sep = '▶'
+            "let g:airline_left_alt_sep = '❯'
+            "let g:airline_right_sep = '◀'
+            "let g:airline_right_alt_sep = '❮'
+            "" let g:airline_symbols.linenr = '¶'
+            "let g:airline_symbols.branch = '-b'
+            "" let g:airline_symbols.branch = '⎇'
+        endif
 
 
         " TODO: put this to really .vimrc.local later...
@@ -577,13 +573,13 @@
         nmap <leader>+ <Plug>AirlineSelectNextTab
 
         " configure separators for the tabline only.
-       " let g:airline#extensions#tabline#left_sep = '|'
-       " let g:airline#extensions#tabline#left_alt_sep = '|'
-       " let g:airline#extensions#tabline#right_sep = '|'
-       " let g:airline#extensions#tabline#right_alt_sep = '|'
+        let g:airline#extensions#tabline#left_sep = '|'
+        let g:airline#extensions#tabline#left_alt_sep = '|'
+        let g:airline#extensions#tabline#right_sep = '|'
+        let g:airline#extensions#tabline#right_alt_sep = '|'
         " set ttimeoutlen=50
         " 显示完整路径
-        "let g:airline_section_b=airline#section#create(['%F'])
+        let g:airline_section_b=airline#section#create(['%F'])
 
         "let g:airline_section_b='%{strftime("%c")}'
         "let g:airline_section_c='BN: %{bufnr("%")}'
@@ -639,15 +635,15 @@
         let g:ycm_collect_identifiers_from_tags_files = 1
         " 开启语法关键字补全
         let g:ycm_seed_identifiers_with_syntax=1
-    
+
         "let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
-    
+
         "" 跳转到定义处, 分屏打开
         "let g:ycm_goto_buffer_command = 'horizontal-split'
         "" nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
         "nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
         "nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
-    
+
         " 引入，可以补全系统，以及python的第三方包 针对新老版本YCM做了兼容
         " old version
         if !empty(glob("~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"))
@@ -657,7 +653,7 @@
         if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
             let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
         endif
-    
+
         " 直接触发自动补全 insert模式下
         let g:ycm_key_invoke_completion = '<c-y>'
         "let g:ycm_key_invoke_completion = '<F9>'
@@ -670,7 +666,7 @@
             \ 'gitcommit' : 1,
             \}
     " }
-    
+
 " }
 
 " k_vim {
@@ -678,7 +674,7 @@
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     "merge k-vim by guan                    """"""""""""""""""""""""""""""""""""
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    
+
     "==========================================
     " Author:  wklken
     " Version: 9.1
