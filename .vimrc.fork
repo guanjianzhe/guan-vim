@@ -214,7 +214,7 @@
     nnoremap [b :bprevious<cr>
     nnoremap ]b :bnext<cr>
 
-    if !exists('g:guan_oters_terminal')
+    if g:guan_oters_terminal == 1
         " 使用方向键切换buffer
         noremap <left> :cp<CR>
         noremap <right> :cn<CR>
@@ -522,7 +522,7 @@
         " "set t_Co=256
 
          " symbols
-        if exists('g:guan_oters_terminal')
+        if g:guan_oters_terminal == 1
             if !exists('g:airline_symbols')
                 let g:airline_symbols = {}
             endif
@@ -579,7 +579,7 @@
         let g:airline#extensions#tabline#right_alt_sep = '|'
         " set ttimeoutlen=50
         " 显示完整路径
-        let g:airline_section_b=airline#section#create(['%F'])
+        "let g:airline_section_b=airline#section#create(['%F'])
 
         "let g:airline_section_b='%{strftime("%c")}'
         "let g:airline_section_c='BN: %{bufnr("%")}'

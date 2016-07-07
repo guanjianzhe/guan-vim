@@ -25,6 +25,13 @@
 "
 " }
 
+if filereadable(expand("~/luoweijian.vim"))
+"if filereadable(("luoweijian.vim"))
+    let g:guan_oters_terminal = 1
+else
+    let g:guan_oters_terminal = 0
+endif
+
 " { guan-vim options
     " when using oters terminal, add the following to your .vimrc.before.local
     " file:
@@ -42,7 +49,7 @@
         "let g:guan_theme  = 'zenburn'
     endif
 
-    if exists('g:guan_oters_terminal')
+    if g:guan_oters_terminal == 1
         let g:guan_theme = 'molokai_dark'
     endif
     "echo g:guan_theme
@@ -97,7 +104,7 @@ let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'p
        let g:spf13_keep_trailing_whitespace = 1
 
     " Enable powerline symbols
-       if !exists('g:guan_oters_terminal')
+       if exists('g:guan_oters_terminal')
            let g:airline_powerline_fonts = 1
        endif
 
@@ -183,7 +190,7 @@ let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'p
         " Use the powerline theme and optionally enable powerline symbols.
         " To use the symbols , , , , , , and .in the statusline
         " segments add the following to your .vimrc.before.local file:
-        if !exists('g:guan_oters_terminal')
+        if g:guan_oters_terminal == 1
             let g:airline_powerline_fonts = 1
         endif
         " If the previous symbols do not render for you then install a
