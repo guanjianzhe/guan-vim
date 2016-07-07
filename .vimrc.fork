@@ -83,71 +83,70 @@
         set background=dark
     endif
 
-        "set background=light         " Assume a dark background
-        "set background=dark
-        set t_Co=256
-    " This is for 50% possibility background
-        "let g:guan_theme = "solarized"
-        if g:guan_theme  == "solarized"
-            if 1 == 0
-                set background=dark
-                set t_Co=256
-                let g:solarized_termcolors=256
-                let g:solarized_termtrans=1
-                let g:solarized_contrast="normal"
-                let g:solarized_visibility="normal"
-                color solarized  " Load a colorscheme"
+    "set background=light         " Assume a dark background
+    "set background=dark
+    set t_Co=256
+    "let g:guan_theme = "solarized"
+    if g:guan_theme  == "solarized"
+        if 1 == 0
+            set background=dark
+            set t_Co=256
+            let g:solarized_termcolors=256
+            let g:solarized_termtrans=1
+            let g:solarized_contrast="normal"
+            let g:solarized_visibility="normal"
+            color solarized  " Load a colorscheme"
 
-                colorscheme solarized
-            else
-                "let g:solarized_termcolors=256
-                "let g:solarized_termtrans=1
-                let g:solarized_contrast="normal"
-                let g:solarized_visibility="normal"
-                "set nolist
-                " g:solarized_visibility =  "normal" (default)   "high" or "low"
-                " https://github.com/altercation/vim-colors-solarized/issues/5
-                let g:solarized_visibility= "low"
-                colorscheme solarized             " Load a colorscheme
-            endif
-            let g:airline_theme = 'solarized'
-        elseif g:guan_theme  == 'molokai_dark'
-            "colorscheme molokai
-            colorscheme molokai_dark
-            let g:airline_theme = 'molokai'
-        elseif g:guan_theme  == 'tomorrow'
-            "Tomrrow-Night hybrid zenburn
-            colorscheme Tomorrow-Night
-            let g:airline_theme = 'tomorrow'
-        elseif g:guan_theme == 'hybrid'
-            "set background=light         " Assume a dark background
-            colorscheme hybrid
-            let g:airline_theme = 'hybrid'
-        elseif g:guan_theme == 'lucius'
-            "set background=light         " Assume a dark background
-            colorscheme lucius
-            let g:airline_theme = 'lucius'
-        elseif g:guan_theme == 'jellybeans'
-            " jellybeans lucius
-            colorscheme jellybeans
-            let g:airline_theme = 'jellybeans'
-        elseif g:guan_theme == 'kolor'
-            colorschem kolor
-            let g:airline_theme = 'kolor'
-        elseif g:guan_theme == 'zenburn'
-            "set background=light         " Assume a dark background
-            colorscheme zenburn
-            let g:airline_theme = 'zenburn'
+            colorscheme solarized
+        else
+            "let g:solarized_termcolors=256
+            "let g:solarized_termtrans=1
+            let g:solarized_contrast="normal"
+            let g:solarized_visibility="normal"
+            "set nolist
+            " g:solarized_visibility =  "normal" (default)   "high" or "low"
+            " https://github.com/altercation/vim-colors-solarized/issues/5
+            let g:solarized_visibility= "low"
+            colorscheme solarized             " Load a colorscheme
         endif
+        let g:airline_theme = 'solarized'
+    elseif g:guan_theme  == 'molokai_dark'
+        "colorscheme molokai
+        colorscheme molokai_dark
+        let g:airline_theme = 'molokai'
+    elseif g:guan_theme  == 'tomorrow'
+        "Tomrrow-Night hybrid zenburn
+        colorscheme Tomorrow-Night
+        let g:airline_theme = 'tomorrow'
+    elseif g:guan_theme == 'hybrid'
+        "set background=light         " Assume a dark background
+        colorscheme hybrid
+        let g:airline_theme = 'hybrid'
+    elseif g:guan_theme == 'lucius'
+        "set background=light         " Assume a dark background
+        colorscheme lucius
+        let g:airline_theme = 'lucius'
+    elseif g:guan_theme == 'jellybeans'
+        " jellybeans lucius
+        colorscheme jellybeans
+        let g:airline_theme = 'jellybeans'
+    elseif g:guan_theme == 'kolor'
+        colorschem kolor
+        let g:airline_theme = 'kolor'
+    elseif g:guan_theme == 'zenburn'
+        "set background=light         " Assume a dark background
+        colorscheme zenburn
+        let g:airline_theme = 'zenburn'
+    endif
 
-        " hemisu ;looks good but no airline theme
-            "colorscheme gruvbox  looks good but no airline theme
-            "let g:airline_theme = 'gruvbox'
-        "colorscheme monokai-chris
-        "let g:airline_theme = 'molokai'
-        "16 base
-            "colorscheme wombat
-            "let g:airline_theme = 'wombat'
+    " hemisu ;looks good but no airline theme
+        "colorscheme gruvbox  looks good but no airline theme
+        "let g:airline_theme = 'gruvbox'
+    "colorscheme monokai-chris
+    "let g:airline_theme = 'molokai'
+    "16 base
+        "colorscheme wombat
+        "let g:airline_theme = 'wombat'
 
     highlight clear SignColumn      " SignColumn should match background
     "highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -214,7 +213,7 @@
     nnoremap [b :bprevious<cr>
     nnoremap ]b :bnext<cr>
 
-    if g:guan_oters_terminal == 1
+    if g:guan_oters_terminal == 0
         " 使用方向键切换buffer
         noremap <left> :cp<CR>
         noremap <right> :cn<CR>
@@ -517,7 +516,7 @@
     "}
 
     " airline {
-        " let g:airline_powerline_fonts = 1
+        let g:airline_powerline_fonts = 1
         " " take care don't change it later
         " "set t_Co=256
 

@@ -39,7 +39,7 @@ endif
 
     if !exists('g:guan_theme')
         " theme choose:
-        "let g:guan_theme  = 'solarized'
+        let g:guan_theme  = 'solarized'
         "let g:guan_theme  = 'molokai_dark'
         "let g:guan_theme  = 'tomorrow'
         "let g:guan_theme  = 'hybrid'
