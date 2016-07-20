@@ -49,8 +49,10 @@ endif
         "let g:guan_theme  = 'zenburn'
     endif
 
-    if g:guan_oters_terminal == 1
-        let g:guan_theme = 'molokai_dark'
+    " background color
+    if !exists('g:guan_background_switch')
+        "let g:guan_background_switch = "dark" "dark, light
+        let g:guan_background_switch = "light" "dark, light
     endif
     "echo g:guan_theme
 " }

@@ -72,9 +72,6 @@
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     " endif }
 
-    " 主题
-    let g:guan_background_switch = "dark" "hour, second, light, dark, daynight
-
     if g:guan_background_switch == "light"
         set background=light
     endif
@@ -947,10 +944,13 @@
     " vimrc文件修改之后自动加载, linux
     autocmd! bufwritepost .vimrc source %
     autocmd! bufwritepost .vimrc.fork source %
+    autocmd! bufwritepost .vimrc.local source %
     autocmd! bufwritepost .vimrc.before source %
     autocmd! bufwritepost .vimrc.before.fork source %
+    autocmd! bufwritepost .vimrc.before.local source %
     autocmd! bufwritepost .vimrc.bundles source %
     autocmd! bufwritepost .vimrc.bundles.fork source %
+    autocmd! bufwritepost .vimrc.bundles.local source %
 
     " TODO
     "autocmd! bufwritepost .vimrc.local source %
