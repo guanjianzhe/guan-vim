@@ -52,7 +52,7 @@ endif
     " background color
     if !exists('g:guan_background_switch')
         "let g:guan_background_switch = "dark" "dark, light
-        let g:guan_background_switch = "light" "dark, light
+        "let g:guan_background_switch = "light" "dark, light
     endif
     "echo g:guan_theme
 " }

@@ -11,10 +11,10 @@ endif
     " colorschem switcher:
     if !exists('g:guan_theme')
     endif
-    "let g:guan_theme = 'solarized'    "hvae light theme
+    let g:guan_theme = 'solarized'    "hvae light theme
     "let g:guan_theme = 'molokai_dark'
     "let g:guan_theme = 'tomorrow'
-    let g:guan_theme = 'hybrid'       "hvae light theme
+    "let g:guan_theme = 'hybrid'       "hvae light theme
     "let g:guan_theme = 'lucius'       "hvae light theme
     "let g:guan_theme = 'jellybeans'
     "let g:guan_theme = 'kolor'
@@ -22,8 +22,8 @@ endif
 
     " background color
     if !exists('g:guan_background_switch')
-        "let g:guan_background_switch = "dark" "dark, light
-        let g:guan_background_switch = "light" "dark, light
+        let g:guan_background_switch = "dark" "dark, light
+        "let g:guan_background_switch = "light" "dark, light
     endif
 
     if g:guan_oters_terminal == 1

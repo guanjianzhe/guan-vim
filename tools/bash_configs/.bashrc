@@ -144,9 +144,17 @@ export PATH=$PATH:/usr/local/DS-5_v5.24.0/bin
 export PATH=$PATH:/usr/local/DS-5_v5.24.0/sw/FLEXnet_11.13.1.2/redhat-enterprise-64bit
 export PATH=$PATH:/usr/local/license/
 
-# for all cd history
-#export PATH=$PATH:~/.gaun-vim/tools/bash_configs
-#. ~/.guan-vim/tools/bash_configs/acd_func.sh
+# All of bash history revisited: load time solved plus directory history
+# repo: https://github.com/djoot/all-bash-history
+# readme: http://nodsw.com/blog/leeland/2012/03/07-all-bash-history-revisited-load-time-solved-plus-directory-history
+# 1. 
+# cd ${HOME}/tools
+# in $HOME/tools git clone https://github.com/djoot/all-bash-history.git
+# 2. 
+# cd $HOME
+# ln -s /home/guanjianzhe/tools/all-bash-history/acd_func.sh bin/.
+# ln -s /home/guanjianzhe/tools/all-bash-history/a_loghistory_func.sh  bin/.
+# ln -s /home/guanjianzhe/tools/all-bash-history/bashrc.user .bashrc.user
 source ~/.bashrc.user
 
 # for cmd markdown, android st
