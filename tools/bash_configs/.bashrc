@@ -124,10 +124,10 @@ fi
 # impotant for git
 export LANGUAGE='en_US.UTF-8 git'
 
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_91
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
+#export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_91
+#export JRE_HOME=${JAVA_HOME}/jre
+#export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+#export PATH=${JAVA_HOME}/bin:$PATH
 
 #for go
 export PATH=$PATH:/usr/local/go/bin
@@ -162,3 +162,6 @@ export PATH=$PATH:/usr/local/cmd_markdown_linux64:/usr/local/android-studio/bin
 
 # for android studio
 export PATH=$PATH:/home/guanjianzhe/bin/android-studio/bin
+
+# for android aosp
+export OUT_DIR_COMMON_BASE=/home/guanjianzhe/aosp_out

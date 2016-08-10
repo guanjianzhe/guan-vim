@@ -35,3 +35,5 @@
 
 [init]
     templatedir = ~/.git_template
+[http]
+	cookiefile = /home/guanjianzhe/.gitcookies
