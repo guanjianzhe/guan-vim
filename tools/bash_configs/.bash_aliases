@@ -37,6 +37,7 @@ alias mounttempForWork='sudo mount -t cifs -o username=csjamesdeng,password=pd12
 
 # 常用命令
 alias sshdeng='ssh csjamesdeng@192.168.200.60'
+alias ssh87='ssh csjamesdeng@192.168.200.87'
 alias ssh60='ssh guanjianzhe@192.168.200.60'
 alias ssh27='ssh guanjianzhe@192.168.200.27'
 alias ssh106='ssh pd1@192.168.200.106'

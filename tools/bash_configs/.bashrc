@@ -165,3 +165,6 @@ export PATH=$PATH:/home/guanjianzhe/bin/android-studio/bin
 
 # for android aosp
 export OUT_DIR_COMMON_BASE=/home/guanjianzhe/aosp_out
+
+# Leon
+export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH
