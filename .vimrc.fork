@@ -567,6 +567,10 @@
         nmap <leader>9 <Plug>AirlineSelectTab9
         nmap <leader>- <Plug>AirlineSelectPrevTab
         nmap <leader>+ <Plug>AirlineSelectNextTab
+        " tabline 路径类型
+        "let g:airline#extensions#tabline#fnamemod = ':p:.'
+        " Just show the filename (no path) in the tab
+        let g:airline#extensions#tabline#fnamemod = ':t'
 
         " configure separators for the tabline only.
         let g:airline#extensions#tabline#left_sep = '|'
