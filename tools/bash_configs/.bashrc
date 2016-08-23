@@ -168,3 +168,6 @@ export OUT_DIR_COMMON_BASE=/home/guanjianzhe/aosp_out
 
 # Leon
 export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH
+
+# for fuchsia
+export PATH=`pwd`/.jiri_root/scripts:$PATH

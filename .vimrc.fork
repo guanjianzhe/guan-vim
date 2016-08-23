@@ -35,7 +35,7 @@
 
     " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
     " 好处：误删什么的，如果以前屏幕打开，可以找回
-    set t_ti= t_te=
+    "set t_ti= t_te=
     
     "    " format
     "    " 解决中文问题
@@ -289,25 +289,36 @@
         echo "F1:"
         echo "F2: NERDTreeToggle\t"
         echo "F3: TagbarToggle"
-        echo "F5: HideNumber()"
-
         echo "F4: pastetoggle"
-        echo "F7: wrap! Toggle"
+
+        echo "F5: HideNumber()"
         echo "F6: list! Toggle"
+        echo "F7: wrap! Toggle"
         echo "F8: expandtab! Toggle<CR>"
-        echo "F9: ToggleSyntax"
+        echo "Fx: ToggleSyntax"
         echo "F10: ToggleMouse()"
     endfunc
     nnoremap <F12> :call PrintFn()<CR>
 
     " F1 - F8 设置
-    " F2 NERDTree开关
-    nnoremap <F2> :NERDTreeToggle<CR>
     " F1 废弃这个键,防止调出系统帮助
     " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
     noremap <F1> <Esc>"
 
-    " F3 为方便复制，用<F3>开启/关闭行号显示:
+    " F2 NERDTree开关
+    nnoremap <F2> :NERDTreeToggle<CR>
+
+    nnoremap <F3> :call ToggleLocationList()<CR>
+
+    "Paste toggle - when pasting something in, don't indent.
+    "set pastetoggle=<F5>
+    "you also can :set paste, :set paste!
+    " F5 粘贴开关，用于鼠标复制代码用
+    set pastetoggle=<F4>            "    when in insert mode, press <F10> to go to
+                                    "    paste mode, where you can paste mass data
+                                    "    that won't be autoindented
+
+    " F5 为方便复制，用<F5>开启/关闭行号显示:
     function! HideNumber()
         "if(&relativenumber == &number)
         "    set relativenumber! number!
@@ -320,21 +331,13 @@
     endfunc
     nnoremap <F5> :call HideNumber()<CR>
 
-    "Paste toggle - when pasting something in, don't indent.
-    "set pastetoggle=<F5>
-    "you also can :set paste, :set paste!
-    " F5 粘贴开关，用于鼠标复制代码用
-    set pastetoggle=<F4>            "    when in insert mode, press <F10> to go to
-                                    "    paste mode, where you can paste mass data
-                                    "    that won't be autoindented
-
-    " F8 显示可打印字符开关
+    " F6 显示可打印字符开关
     nnoremap <F6> :set list! list?<CR>
-    " F6 换行开关
+    " F7 换行开关
     nnoremap <F7> :set wrap! wrap?<CR>
     nnoremap <F8> :set expandtab! expandtab?<CR>    " Tabs are tabs, or spaces.
 
-    "" F7 语法开关，关闭语法可以加快大文件的展示
+    "" F9 语法开关，关闭语法可以加快大文件的展示
     "function! ToggleSyntax()
     "    "if(&relativenumber == &number)
     "    "elseif(&number)
@@ -342,7 +345,7 @@
     "    "endif    <CR> :RainbowToggle
     "    set number?
     "endfunc
-    nnoremap <F9> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+    "nnoremap <F9> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
     function! ToggleMouse()
         if(&mouse == 'a')
@@ -612,8 +615,8 @@
         if isdirectory(expand("~/.vim/bundle/rainbow/"))
             "let g:rainbow_active = 0 "0 if you want to enable it later via :RainbowToggle
             nmap <leader>rb :RainbowToggle<CR>
-            let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
-            "let lightcolors =  ['lightblue', 'darkyellow', 'red', 'darkgreen', 'lightyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
+            "let lightcolors =  ['lightblue', 'lightyellow', 'red', 'darkgreen', 'darkyellow', 'lightred', 'yellow', 'cyan', 'magenta', 'white']
+            let lightcolors =  ['Darkyellow', 'Magenta', 'Red', 'DarkGreen', 'cyan']
             "let darkcolors = ['DarkBlue', 'Magenta', 'Black', 'Red', 'DarkGray', 'DarkGreen', 'DarkYellow']
             "let darkcolors = ['DarkBlue', 'Magenta', 'DarkGray', 'DarkYellow', 'DarkGreen', 'Red', 'Gray']
             let darkcolors = ['DarkBlue', 'DarkGreen', 'DarkGray', 'Red', 'Magenta', 'DarkYellow', 'Gray']
