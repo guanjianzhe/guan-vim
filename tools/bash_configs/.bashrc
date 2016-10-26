@@ -155,7 +155,7 @@ export PATH=$PATH:/usr/local/license/
 # ln -s /home/guanjianzhe/tools/all-bash-history/acd_func.sh bin/.
 # ln -s /home/guanjianzhe/tools/all-bash-history/a_loghistory_func.sh  bin/.
 # ln -s /home/guanjianzhe/tools/all-bash-history/bashrc.user .bashrc.user
-source ~/.bashrc.user
+# source ~/.bashrc.user
 
 # for cmd markdown, android st
 export PATH=$PATH:/usr/local/cmd_markdown_linux64:/usr/local/android-studio/bin
