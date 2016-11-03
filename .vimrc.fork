@@ -36,12 +36,12 @@
     " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制, 不需要可以去掉
     " 好处：误删什么的，如果以前屏幕打开，可以找回
     "set t_ti= t_te=
-    
+
     "    " format
     "    " 解决中文问题
     "    set encoding=utf-8
     "    set fileencodings=utf-8,chinese,gb2312,gbk,gb18030,big5,latin-1
-    
+
     lang messages zh_CN.UTF-8
     "解决consle输出乱码
     set encoding=utf-8
@@ -159,6 +159,7 @@
 
 " Key_(re)Mappings {
 
+    nnoremap dp :diffput<CR>
     "Fast Ex command
     nnoremap ; :
 
@@ -408,7 +409,7 @@
             "autocmd BufEnter * nested :call tagbar#autoopen(0)
         endif
     " }
-    
+
     " Fugitive {
         if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
             nnoremap <silent> <leader>gd :Gvdiff<CR>
@@ -417,7 +418,7 @@
     "}
 
     " Syntastic {
-    
+
         "let g:syntastic_always_populate_loc_list = 1
         " 不要自动关闭location list
         let g:syntastic_auto_loc_list = 0
@@ -427,7 +428,7 @@
         let g:syntastic_enable_signs = 0
         let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
         nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
-    
+
     " }
     " markdown {
        " Plug 'plasticboy/vim-markdown', {'for': 'md'}
@@ -462,7 +463,7 @@
         "Below is the minimum key mappings.
         nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
         nnoremap <leader>l :call ToggleLocationList()<CR>
-    
+
         "Some optional key mappings to search directly.
         " s: Find this C symbol
         nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
@@ -1025,7 +1026,7 @@
     " F1 废弃这个键,防止调出系统帮助
     " I can type :help on my own, thanks.  Protect your fat fingers from the evils of <F1>
     noremap <F1> <Esc>"
-    
+
     "" F2 行号开关，用于鼠标复制代码用
     "" 为方便复制，用<F2>开启/关闭行号显示:
     "function! HideNumber()
@@ -1222,13 +1223,13 @@
     "" 增强tab操作, 导致这个会有问题, 考虑换键
     ""nmap t o<ESC>k
     ""nmap T O<ESC>j
-    
+
     " Quickly close the current window
     nnoremap <leader>q :q<CR>
-    
+
     " Quickly save the current file
     nnoremap <leader>w :w<CR>
-    
+
     "" 交换 ' `, 使得可以快速使用'跳到marked位置
     "nnoremap ' `
     "nnoremap ` '
@@ -1383,7 +1384,7 @@
 
 " }
 
-" { 
+" {
     " Find merge conflict markers
     " go to merge conflict markers
     " already in spf13
