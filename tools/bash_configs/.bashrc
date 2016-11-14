@@ -125,9 +125,10 @@ fi
 export LANGUAGE='en_US.UTF-8 git'
 
 #export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_91
-#export JRE_HOME=${JAVA_HOME}/jre
-#export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-#export PATH=${JAVA_HOME}/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-8
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
 
 #for go
 export PATH=$PATH:/usr/local/go/bin
@@ -166,8 +167,8 @@ export PATH=$PATH:/home/guanjianzhe/bin/android-studio/bin
 # for android aosp
 export OUT_DIR_COMMON_BASE=/home/guanjianzhe/aosp_out
 
-# Leon
-export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH
+export PATH=$PATH:/usr/local/DS-5/bin
 
-# for fuchsia
-export PATH=`pwd`/.jiri_root/scripts:$PATH
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@local\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+export PATH=/home/guanjianzhe/install/vim/bin/:$PATH

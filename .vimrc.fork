@@ -159,14 +159,15 @@
 
 " Key_(re)Mappings {
 
+    " FIXME: fix diffput tempolary
     nnoremap dp :diffput<CR>
-    "Fast Ex command
-    nnoremap ; :
 
+    ""Fast Ex command
+    "nnoremap ; :
 
-    "Set mapleader
-    let mapleader = ","
-    let g:mapleader = ","
+    ""Set mapleader
+    "let mapleader = ","
+    "let g:mapleader = ","
 
     " Some helpers to edit mode
     " http://vimcasts.org/e/14
