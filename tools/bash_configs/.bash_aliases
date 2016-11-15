@@ -18,8 +18,12 @@
 # 常用目录
 alias cdbiji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记'
 alias biji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记 && vi -S biji.vim'
-alias cd27l4='cd /home/guanjianzhe/servers/27server/gerrit/lichee/linux-3.4'
-alias cdl10='cd ~/workspace/linux-3.10/'
+alias base='cd /home/guanjianzhe/n-product/android/frameworks/base'
+alias core='cd /home/guanjianzhe/n-product/android/system/core'
+alias l4='cd /home/guanjianzhe/n-product/lichee/linux-3.4'
+alias l10='cd /home/guanjianzhe/n-product/lichee/linux-3.10'
+alias l44='cd /home/guanjianzhe/workspace/linux-4.4'
+alias l47='cd /home/guanjianzhe/workspace/deng/linux-stable'
 alias cd106a64='cd ~/servers/106server/workspace/autotest/test/smoke/a64'
 alias cd60workspace='cd ~/servers/60server/workspace'
 
