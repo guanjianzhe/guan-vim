@@ -165,9 +165,9 @@
     ""Fast Ex command
     "nnoremap ; :
 
-    ""Set mapleader
-    "let mapleader = ","
-    "let g:mapleader = ","
+    "set mapleader
+    let mapleader = ","
+    let g:mapleader = ","
 
     " Some helpers to edit mode
     " http://vimcasts.org/e/14
