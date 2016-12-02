@@ -385,6 +385,10 @@
     "vmap <C-F8> <Esc><Esc>:call EnhancedCommentify('yes','decomment',line("'<"),line("'>"))<CR>
     ":autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
 
+    "compare files
+    command! Difft windo diffthis
+    command! Diffo windo diffoff
+
 " }
 
 " Plugins {
@@ -414,6 +418,7 @@
             let g:tagbar_width = 35
             " sorted according to order in the source file.
             let g:tagbar_sort = 0
+            " TODO: can not close tagbar.
             "autocmd BufEnter * nested :call tagbar#autoopen(0)
         endif
     " }
