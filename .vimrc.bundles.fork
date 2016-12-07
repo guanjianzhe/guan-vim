@@ -54,28 +54,6 @@
 
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
-
-            "----- guan customize
-            Bundle 'brookhong/cscope.vim'
-            Bundle 'lilydjwg/fcitx.vim'
-            "Bundle 'suan/vim-instant-markdown'
-            Bundle 'seebi/dircolors-solarized'
-            Bundle 'sigurdga/gnome-terminal-colors-solarized'
-            "if count(g:bundle_groups, 'tmux')
-                " tmux
-                " For tmux navigator Ctrl-hjkl
-                Bundle 'christoomey/vim-tmux-navigator'
-                Bundle 'edkolev/tmuxline.vim'
-                " TODO customize it to guanjianzhe/.tmux
-                "Bundle 'gpakosz/.tmux'
-                "Bundle 'guanjianzhe/.tmux'
-                Bundle 'tpope/vim-obsession'
-                "Bundle 'wklken/k-tmux'
-            "endif
-            "Bundle 'altercation/solarized'
-            Bundle 'rdnetto/YCM-Generator'
-            "----- end of guan customize
-
 "            " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
             Bundle 'tpope/vim-fugitive'
@@ -210,7 +188,7 @@
     " }
 
     " Misc {
-"        if count(g:spf13_bundle_groups, 'misc')
+        if count(g:spf13_bundle_groups, 'misc')
 "            Bundle 'rust-lang/rust.vim'
             Bundle 'tpope/vim-markdown'
             Bundle 'spf13/vim-preview'
@@ -218,7 +196,34 @@
 "            Bundle 'cespare/vim-toml'
 "            Bundle 'quentindecock/vim-cucumber-align-pipes'
 "            Bundle 'saltstack/salt-vim'
-"        endif
+        endif
+    " }
+
+    " guan {
+        if count(g:spf13_bundle_groups, 'guan')
+            "----- guan customize
+            Bundle 'brookhong/cscope.vim'
+            Bundle 'lilydjwg/fcitx.vim'
+            "Bundle 'suan/vim-instant-markdown'
+            Bundle 'seebi/dircolors-solarized'
+            Bundle 'sigurdga/gnome-terminal-colors-solarized'
+            "Bundle 'altercation/solarized'
+            Bundle 'rdnetto/YCM-Generator'
+            Bundle 'junegunn/vim-easy-align'
+            "----- end of guan customize
+
+            "if count(g:bundle_groups, 'tmux')
+                " tmux
+                " For tmux navigator Ctrl-hjkl
+                Bundle 'christoomey/vim-tmux-navigator'
+                Bundle 'edkolev/tmuxline.vim'
+                " TODO customize it to guanjianzhe/.tmux
+                "Bundle 'gpakosz/.tmux'
+                "Bundle 'guanjianzhe/.tmux'
+                Bundle 'tpope/vim-obsession'
+                "Bundle 'wklken/k-tmux'
+            "endif
+        endif
     " }
 
 
