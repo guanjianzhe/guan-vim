@@ -148,6 +148,10 @@
     highlight clear SignColumn      " SignColumn should match background
     "highlight clear LineNr          " Current line number row will have same background color in relative mode
 
+    "let &colorcolumn=join(range(81,999),",")   " 80以后高亮
+    let &colorcolumn="80,".join(range(120,999),",")    " 80高亮 120后高亮
+    "let &colorcolumn="80"
+
 " }
 
 " Formatting {
