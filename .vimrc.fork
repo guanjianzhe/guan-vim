@@ -169,9 +169,12 @@
     ""Fast Ex command
     "nnoremap ; :
 
-    "set mapleader
-    let mapleader = ","
-    let g:mapleader = ","
+    " set mapleader
+    "let mapleader = ","
+    "let g:mapleader = ","
+
+    "  remap \ as , for repeat latest search in opposite direction.
+    nnoremap \ ,
 
     " Some helpers to edit mode
     " http://vimcasts.org/e/14
