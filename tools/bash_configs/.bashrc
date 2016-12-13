@@ -82,6 +82,8 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+	#export GREP_OPTIONS='--exclude-dir=\.git --exclude-dir=\.repo'
+	export GREP_OPTIONS='--exclude-dir=\.git --exclude-dir=\.repo --exclude=tags --exclude=system.map --exclude=System.map --exclude=.tmp_System.map'
 fi
 
 # colored GCC warnings and errors
