@@ -584,6 +584,18 @@
         nmap <leader>9 <Plug>AirlineSelectTab9
         nmap <leader>- <Plug>AirlineSelectPrevTab
         nmap <leader>+ <Plug>AirlineSelectNextTab
+
+        " control which sections get truncated and at what width.
+          let g:airline#extensions#default#section_truncate_width = {
+              \ 'a': 120,
+              \ 'b': 140,
+              \ 'x': 80,
+              \ 'y': 180,
+              \ 'z': 110,
+              \ 'warning': 80,
+              \ 'error': 80,
+              \ }
+
         " tabline 路径类型
         "let g:airline#extensions#tabline#fnamemod = ':p:.'
         " Just show the filename (no path) in the tab
