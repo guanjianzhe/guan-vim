@@ -420,6 +420,7 @@
             let g:tagbar_sort = 0
             " TODO: can not close tagbar.
             "autocmd BufEnter * nested :call tagbar#autoopen(0)
+            autocmd FileType * nested :call tagbar#autoopen(0)
         endif
     " }
 

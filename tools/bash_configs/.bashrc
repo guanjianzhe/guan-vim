@@ -126,11 +126,11 @@ fi
 # impotant for git
 export LANGUAGE='en_US.UTF-8 git'
 
-#export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_91
-export JAVA_HOME=/usr/lib/jvm/java-8
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH
+##export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_91
+#export JAVA_HOME=/usr/lib/jvm/java-8
+#export JRE_HOME=${JAVA_HOME}/jre
+#export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+#export PATH=${JAVA_HOME}/bin:$PATH
 
 #for go
 export PATH=$PATH:/usr/local/go/bin
@@ -141,11 +141,11 @@ export PATH=$PATH:$GOBIN
 #for server60 vim
 export PATH=~/tools/vim/bin:$PATH
 
-# for ds-5
-export PATH=$PATH:/usr/local/DS-5_v5.24.0/bin
+## for ds-5
+#export PATH=$PATH:/usr/local/DS-5_v5.24.0/bin
 
-export PATH=$PATH:/usr/local/DS-5_v5.24.0/sw/FLEXnet_11.13.1.2/redhat-enterprise-64bit
-export PATH=$PATH:/usr/local/license/
+#export PATH=$PATH:/usr/local/DS-5_v5.24.0/sw/FLEXnet_11.13.1.2/redhat-enterprise-64bit
+#export PATH=$PATH:/usr/local/license/
 
 # All of bash history revisited: load time solved plus directory history
 # repo: https://github.com/djoot/all-bash-history
@@ -174,3 +174,9 @@ export PATH=$PATH:/usr/local/DS-5/bin
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@local\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 export PATH=/home/guanjianzhe/install/vim/bin/:$PATH
+export PATH=~/tools/android-studio/bin:$PATH
+
+source ~/.bash_profile
+
+export USE_CCACHE=1
+export ANDROID_JACK_VM_ARGS="-Xmx2g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"
