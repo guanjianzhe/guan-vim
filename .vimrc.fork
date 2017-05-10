@@ -1363,7 +1363,7 @@
     ""==========================================
     "
     "" Set extra options when running in GUI mode
-    "if has("gui_running")
+    if has("gui_running")
     "    set guifont=Monaco:h14
     "    if has("gui_gtk2")   "GTK2
     "        set guifont=Monaco\ 12,Monospace\ 12
@@ -1377,7 +1377,9 @@
     "    set linespace=2
     "    set noimd
     "    set t_Co=256
-    "endif
+    set guifont=DejaVu_Sans_Mono_for_Powerline:h12:cANSI:qDRAFT " 设置windows下的字体
+    "set guifont=Consolas:h14:cANSI:qDRAFT
+    endif
     "
     "
     "
