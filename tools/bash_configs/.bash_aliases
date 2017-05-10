@@ -18,7 +18,7 @@
 # 常用目录
 alias cdbiji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记'
 alias biji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记 && vi -S biji.vim'
-alias base='cd /home/guanjianzhe/n-product/android/frameworks/base'
+alias base='cd ~/workspace/aosp/frameworks/base'
 alias core='cd /home/guanjianzhe/n-product/android/system/core'
 alias l4='cd /home/guanjianzhe/workspace/lichee/linux-3.4'
 alias l10='cd /home/guanjianzhe/workspace/lichee/linux-3.10'
@@ -61,3 +61,6 @@ alias xrr='xrandr --output DVI-D-1 --off --output HDMI-1 --auto'
 #alias xra='xrandr --output  DVI-D-1 --left-of HDMI-1 --auto && xrandr --output  HDMI-1 --right-of  DVI-D-1 --auto'
 alias xra='xrandr --output  DVI-D-1 --auto  --output  HDMI-1 --auto --right-of  DVI-D-1'
 alias xrar='xrandr --output  DVI-D-1 --auto  --output  HDMI-1 --auto --left-of  DVI-D-1'
+
+# 系统管理
+alias cap='cat /sys/class/power_supply/BAT0/capacity'

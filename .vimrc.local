@@ -1,0 +1,19 @@
+
+" Modeline_and_Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+"
+"    _______  __    __       ___      .__   __.      ____    ____  __  .___  ___.
+"   /  _____||  |  |  |     /   \     |  \ |  |      \   \  /   / |  | |   \/   |
+"  |  |  __  |  |  |  |    /  ^  \    |   \|  |  _____\   \/   /  |  | |  \  /  |
+"  |  | |_ | |  |  |  |   /  /_\  \   |  . `  | |______\      /   |  | |  |\/|  |
+"  |  |__| | |  `--'  |  /  _____  \  |  |\   |         \    /    |  | |  |  |  |
+"   \______|  \______/  /__/     \__\ |__| \__|          \__/     |__| |__|  |__|
+"
+"
+"   You can find me at: https://github.com/guanjanzhe
+"
+"   Copyright 2016 guanjianzhe
+
+command CDW cd ~/workspace
+command CDC cd %:p:h
