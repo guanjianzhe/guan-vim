@@ -203,7 +203,7 @@
         if count(g:spf13_bundle_groups, 'guan')
             "----- guan customize
             Bundle 'brookhong/cscope.vim'
-            Bundle 'lilydjwg/fcitx.vim'
+            "Bundle 'lilydjwg/fcitx.vim'
             "Bundle 'suan/vim-instant-markdown'
             Bundle 'seebi/dircolors-solarized'
             Bundle 'sigurdga/gnome-terminal-colors-solarized'

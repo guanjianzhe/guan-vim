@@ -27,6 +27,8 @@ alias l47='cd /home/guanjianzhe/workspace/linux'
 alias cd106a64='cd ~/servers/106server/workspace/autotest/test/smoke/a64'
 alias cd60workspace='cd ~/servers/60server/workspace'
 alias aosp='cd ~/workspace/aosp_n'
+alias govpn='cd ~/workspace/GoVpn/trunk'
+alias vpnmain='cd ~/workspace/GoVpn/trunk/app/src/main'
 
 #alias mount18='sudo mount //192.168.200.18 ~/servers/18server -o username=guanjianzhe,password=guan@2016,dir_mode=0777,file_mode=0777,uid=1000,gid=1000'
 #                   mount //192.168.200.74/liyong/ ~/DiskOnNet/CompileServer/ -o username=liyong,     password=xxxxxx,dir_mode=0777,   file_mode=0777,uid=1000,gid=1000

@@ -79,7 +79,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto --exclude-dir=\.git --exclude-dir=\.repo --exclude=tags --exclude=system.map --exclude=System.map --exclude=.tmp_System.map'
+    alias grep='grep --color=auto --exclude-dir=\.git --exclude-dir=\.repo --exclude=tags --exclude=system.map --exclude=System.map --exclude=.tmp_System.map --exclude-dir=\.svn'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 	#export GREP_OPTIONS='--exclude-dir=\.git --exclude-dir=\.repo'
@@ -164,7 +164,8 @@ export PATH=~/tools/vim/bin:$PATH
 export PATH=$PATH:/usr/local/cmd_markdown_linux64:/usr/local/android-studio/bin
 
 # for android studio
-export PATH=$PATH:/home/guanjianzhe/bin/android-studio/bin
+export PATH=~/tools/android-studio/bin:$PATH
+export PATH=/home/guanjianzhe/Android/Sdk/platform-tools:$PATH
 
 # for android aosp
 export OUT_DIR_COMMON_BASE=/home/guanjianzhe/aosp_out
@@ -173,10 +174,8 @@ export PATH=$PATH:/usr/local/DS-5/bin
 
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@local\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
+#vim
 export PATH=/home/guanjianzhe/install/vim/bin/:$PATH
-export PATH=~/tools/android-studio/bin:$PATH
-
-source ~/.bash_profile
 
 export USE_CCACHE=1
-export ANDROID_JACK_VM_ARGS="-Xmx2g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"
+export ANDROID_JACK_VM_ARGS="-Xmx4g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"

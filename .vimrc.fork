@@ -628,7 +628,7 @@
             nmap <leader>nf :NERDTreeFind<CR>
 
             let NERDTreeShowBookmarks=1
-            let NERDTreeIgnore=['builtin', 'out', 'tags', '\.cmd$', '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.o$']
+            let NERDTreeIgnore=['builtin', '^out', 'tags', '\.cmd$', '\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.o$']
             let NERDTreeChDirMode=0
             let NERDTreeQuitOnOpen=0
             let NERDTreeMouseMode=2
