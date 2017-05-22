@@ -58,11 +58,11 @@ alias livesuit='sudo /home/guanjianzhe/Bin/LiveSuit/LiveSuit.sh > /dev/null 2>&1
 alias enwlan='sudo /home/guanjianzhe/tools/enable_wlan0.sh'
 alias gtmux='tmux attach -t guan || tmux new -s guan'
 
-alias xrl='xrandr --output DVI-D-1 --auto --output HDMI-1 --off'
-alias xrr='xrandr --output DVI-D-1 --off --output HDMI-1 --auto'
+alias xrl='xrandr --output eDP1 --auto --output DP1 --off'
+alias xrr='xrandr --output eDP1 --off --output DP1 --auto'
 #alias xra='xrandr --output  DVI-D-1 --left-of HDMI-1 --auto && xrandr --output  HDMI-1 --right-of  DVI-D-1 --auto'
-alias xra='xrandr --output  DVI-D-1 --auto  --output  HDMI-1 --auto --right-of  DVI-D-1'
-alias xrar='xrandr --output  DVI-D-1 --auto  --output  HDMI-1 --auto --left-of  DVI-D-1'
+alias xra='xrandr --output  eDP1 --auto  --output  DP1 --auto --right-of  eDP1'
+alias xrar='xrandr --output  eDP1 --auto  --output  DP1 --auto --left-of  eDP1'
 
 # 系统管理
 alias cap='cat /sys/class/power_supply/BAT0/capacity'
