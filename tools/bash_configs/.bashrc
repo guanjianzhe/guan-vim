@@ -79,7 +79,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto --exclude-dir=\.git --exclude-dir=\.repo --exclude=tags --exclude=system.map --exclude=System.map --exclude=.tmp_System.map --exclude-dir=\.svn'
+    alias grep='grep --color=auto --exclude-dir=\.git --exclude-dir=\.repo --exclude=tags --exclude=system.map --exclude=System.map --exclude=.tmp_System.map --exclude-dir=\.svn --exclude-dir=\.idea --exclude-dir=\build'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 	#export GREP_OPTIONS='--exclude-dir=\.git --exclude-dir=\.repo'
