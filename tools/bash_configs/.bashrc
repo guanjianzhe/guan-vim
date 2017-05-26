@@ -118,6 +118,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# local .bashrc
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
+
 # guan
 if [ "$TERM" == "xterm"  ]; then
     export TERM=xterm-256color
