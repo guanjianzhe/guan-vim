@@ -1,0 +1,18 @@
+
+# alias
+## android system
+alias aosp='cd ~/workspace/aosp_n'
+alias base='cd ~/android-7.1.2_r11/frameworks/base'
+alias core='cd ~/android-7.1.2_r11/system/core'
+alias Settings='cd ~/android-7.1.2_r11/packages/apps/Settings'
+
+## android application
+alias 1='cd ~/workspace/GoVpn/trunk'
+alias 2='cd ~/workspace/GoVpn/trunk/app/src/main'
+alias 3='cd ~/workspace/GoSpeed/trunk'
+alias 4='cd ~/workspace/booksource'
+alias 5='cd ~/workspace/coolweather/app/src/main'
+
+## android & linux
+#alias b='cd ~/android-7.1.2_r11/frameworks/base'
+#alias linux='cd /home/guanjianzhe/workspace/linux'
