@@ -171,6 +171,7 @@ export PATH=$PATH:/usr/local/cmd_markdown_linux64:/usr/local/android-studio/bin
 # for android studio
 export PATH=~/tools/android-studio/bin:$PATH
 export PATH=/home/guanjianzhe/Android/Sdk/platform-tools:$PATH
+#export PATH=/home/guanjianzhe/aosp_out/lineage/host/linux-x86/bin/adb:/home/guanjianzhe/Android/Sdk/platform-tools:$PATH
 
 # for android aosp
 export OUT_DIR_COMMON_BASE=/home/guanjianzhe/aosp_out
@@ -182,5 +183,63 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@local\[\033[00m\]:\[\03
 #vim
 export PATH=/home/guanjianzhe/install/vim/bin/:$PATH
 
+# for android system compile
 export USE_CCACHE=1
+~/lineage/prebuilts/misc/linux-x86/ccache/ccache -M 50G
 export ANDROID_JACK_VM_ARGS="-Xmx4g -Dfile.encoding=UTF-8 -XX:+TieredCompilation"
+
+# for android system compile
+function mkf()
+{
+croot && \
+#make clean-framework -j8 && \
+#mmm frameworks/base/ -j8 && \
+make framework -j8 && \
+adb root && \
+adb remount && \
+adb push $OUT/system/framework/framework.jar /system/framework/ && \
+adb reboot
+}
+
+function mks()
+{
+croot && \
+#make clean-services -j8 && \
+#mmm frameworks/base/services -j8 && \
+make framework -j8 && \
+make services -j8 && \
+adb root && \
+adb remount && \
+adb push $OUT/system/framework/framework.jar /system/framework/ && \
+adb push $OUT/system/framework/services.jar /system/framework/ && \
+adb reboot
+}
+
+function mkp()
+{
+#make clean-android.policy -j8 && \
+mmm frameworks/base/policy -j8 && \
+adb root && \
+adb remount && \
+adb push $OUT/system/framework/android.policy.jar /system/framework/ && \
+adb reboot
+}
+
+function mkr()
+{
+#make clean-framework-res -j8 && \
+mmm frameworks/base/core/res/ -j8 && \
+adb root && \
+adb remount && \
+adb push $OUT/system/framework/framework-res.apk /system/framework/ && \
+adb reboot
+}
+
+function mkSettings()
+{
+make Settings -j8 && \
+adb root && \
+adb remount && \
+adb push $OUT/system/priv-app/Settings/Settings.apk /system/priv-app/Settings/
+#adb reboot
+}
