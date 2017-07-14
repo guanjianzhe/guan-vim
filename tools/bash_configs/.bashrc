@@ -170,8 +170,8 @@ export PATH=$PATH:/usr/local/cmd_markdown_linux64:/usr/local/android-studio/bin
 
 # for android studio
 export PATH=~/tools/android-studio/bin:$PATH
-export PATH=/home/guanjianzhe/Android/Sdk/platform-tools:$PATH
-#export PATH=/home/guanjianzhe/aosp_out/lineage/host/linux-x86/bin/adb:/home/guanjianzhe/Android/Sdk/platform-tools:$PATH
+#export PATH=/home/guanjianzhe/Android/Sdk/platform-tools:$PATH
+export PATH=/home/guanjianzhe/aosp_out/lineage/host/linux-x86/bin:/home/guanjianzhe/Android/Sdk/platform-tools:$PATH
 
 # for android aosp
 export OUT_DIR_COMMON_BASE=/home/guanjianzhe/aosp_out
@@ -243,3 +243,9 @@ adb remount && \
 adb push $OUT/system/priv-app/Settings/Settings.apk /system/priv-app/Settings/
 #adb reboot
 }
+
+setTitle() {
+    echo -e "\033]0;$@\007"
+}
+
+source ~/lineage/sdk/bash_completion/adb.bash
