@@ -16,8 +16,9 @@
 #alias cd18server='cd ~/servers/18server'
 
 # 常用目录
-alias cdbiji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记'
-alias biji='cd /home/guanjianzhe/Dropbox/quan全志工作/biji笔记 && vi -S biji.vim'
+alias cdbiji='cd /home/guanjianzhe/Dropbox/jiu久邦工作/bi笔记/Cmd-Markdowns'
+#alias biji='cd /home/guanjianzhe/Dropbox/jiu久邦工作/bi笔记/Cmd-Markdowns && vi -S biji.vim'
+alias biji='cd /home/guanjianzhe/Dropbox/jiu久邦工作/bi笔记/Cmd-Markdowns'
 alias linux='cd /home/guanjianzhe/workspace/linux'
 
 ## android application
