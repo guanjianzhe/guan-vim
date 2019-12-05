@@ -51,7 +51,7 @@ endif
 
     " background color
     if !exists('g:guan_background_switch')
-        "let g:guan_background_switch = "dark" "dark, light
+        let g:guan_background_switch = "dark" "dark, light
         "let g:guan_background_switch = "light" "dark, light
     endif
     "echo g:guan_theme
@@ -67,7 +67,7 @@ endif
 "        elseif count(g:spf13_bundle_groups, 'youcompleteme')
 "        elseif count(g:spf13_bundle_groups, 'neocomplcache')
 "        elseif count(g:spf13_bundle_groups, 'neocomplete')
-let g:spf13_bundle_groups=['general', 'programming', 'misc', 'youcompleteme', 'python', 'guan',]
+let g:spf13_bundle_groups=['general', 'programming', 'misc', 'python', 'guan']
 
 " To override all the included bundles, add the following to your
 " .vimrc.bundles.local file:

@@ -29,9 +29,9 @@ guan_app_name='guan-vim'
 [ -z "$GUAN_REPO_URI" ] && GUAN_REPO_URI='https://github.com/guanjianzhe/guan-vim.git'
 [ -z "$GUAN_REPO_BRANCH" ] && GUAN_REPO_BRANCH='master'
 # 1: 没有网络
-no_network_mode='1'
+no_network_mode='0'
 # 
-guanjianzhe='0'
+guanjianzhe='1'
 
 ############################  BASIC SETUP TOOLS
 msg() {
